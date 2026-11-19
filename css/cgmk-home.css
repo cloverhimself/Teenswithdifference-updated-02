@@ -300,3 +300,19 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
  .cgmk-fellowship-card,
  .cgmk-fellowship-card:last-child { height: 330px; }
 }
+
+/* Fellowship: hover to preview, click to pin for photos */
+.cgmk-fellowship-card { appearance:none; border:0; border-radius:0; padding:0; margin:0; cursor:pointer; text-align:left; font-family:inherit; }
+.cgmk-fellowship-card:focus-visible { outline:3px solid #edc8b2; outline-offset:-4px; }
+.cgmk-fellowship-card.is-pinned { flex-grow:4.6; }
+.cgmk-fellowship-card.is-pinned .cgmk-fellowship-description { opacity:1; transform:translateY(0); }
+@media (min-width:801px) {
+ .cgmk-fellowship-deck:has(.is-pinned) .cgmk-fellowship-card:hover,
+ .cgmk-fellowship-deck:has(.is-pinned) .cgmk-fellowship-card:focus-visible { flex-grow:1; }
+ .cgmk-fellowship-deck:has(.is-pinned) .cgmk-fellowship-card.is-pinned,
+ .cgmk-fellowship-deck:has(.is-pinned) .cgmk-fellowship-card.is-pinned:hover,
+ .cgmk-fellowship-deck:has(.is-pinned) .cgmk-fellowship-card.is-pinned:focus-visible { flex-grow:4.6; }
+}
+.cgmk-fellowships-contact { margin:23px 0 0; font:500 14px/1.6 'Cabinet Grotesk',sans-serif; color:#5d636a; }
+.cgmk-fellowships-contact a { margin-left:6px; color:#a02e39 !important; text-decoration:underline; text-underline-offset:4px; font-weight:700; }
+@media (max-width:800px) { .cgmk-fellowship-card.is-pinned { flex-grow:initial; box-shadow:inset 0 0 0 3px #b5323c; } }
