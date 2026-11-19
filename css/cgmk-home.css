@@ -210,12 +210,11 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
 .cgmk-fellowship-teens { background-image: url('https://res.cloudinary.com/htec4rnl/image/upload/f_auto,q_auto:good,c_fill,w_900,h_1200/v1795064901/cgmk-teenagers-03.jpg'); }
 .cgmk-fellowship-children { background-image: url('https://res.cloudinary.com/htec4rnl/image/upload/f_auto,q_auto:good,c_fill,w_900,h_1200/v1795064629/children5.jpg'); }
 
-/* The source video is 720x1280 portrait. Keep it in a half-width panel on
-   desktop rather than stretching a portrait frame across a widescreen hero.
-   Mobile uses the natural portrait composition. */
+/* Fill the entire hero with the original portrait video. Cover crops the vertical frame
+   on wide screens; it does not stretch or distort the footage. */
 .cgmk-hero { background: #111922; }
 .cgmk-hero-photo { z-index: -3; }
-.cgmk-hero-media { position: absolute; right: 0; top: 0; bottom: 0; width: 50%; z-index: -2; overflow: hidden; background: #0e161e; }
+.cgmk-hero-media { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden; background: transparent; }
 .cgmk-hero-video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
 .cgmk-hero-shade { z-index: -1; background:
   linear-gradient(90deg, rgba(8,17,23,.9) 0%,rgba(8,17,23,.85) 29%, rgba(8,17,23,.48) 58%, rgba(8,17,23,.17) 100%),
@@ -235,7 +234,7 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
 @media (max-width: 800px) {
  .cgmk-hero-media { width: 100%; }
  .cgmk-hero-video { object-position: center 44%; }
- .cgmk-hero-photo { display: none; }
+ .cgmk-hero-photo { display: block; }
  .cgmk-hero-shade { background: linear-gradient(0deg,rgba(7,14,21,.90) 3%,rgba(7,14,21,.56) 56%,rgba(7,14,21,.44) 100%); }
  .cgmk-pastor-layout { grid-template-columns: 1fr; gap: 45px; }
  .cgmk-pastor-visual { min-height: 450px; }
@@ -255,3 +254,16 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
  .cgmk-hero-video { display: none; }
  .cgmk-hero-photo { display: block; z-index: -3; }
 }
+
+/* Persistent, readable navigation across the entire page */
+.cgmk-header { position: fixed; width: 100%; transition: background-color .25s ease, box-shadow .25s ease, padding .25s ease; }
+.cgmk-header.is-scrolled, .cgmk-header.is-menu-open { background: rgba(10,17,24,.94); box-shadow: 0 1px 0 rgba(255,255,255,.1), 0 8px 28px rgba(0,0,0,.12); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+.cgmk-header.is-scrolled { padding-top: 13px; padding-bottom: 13px; min-height: 69px; }
+.cgmk-hero-video { object-fit: cover; object-position: center center; }
+.cgmk-hero-media { pointer-events: none; }
+@media (max-width: 760px) {
+ .cgmk-header.is-scrolled { min-height: 68px; padding: 12px 6%; }
+ .cgmk-nav { top: 100%; }
+ .cgmk-hero-video { object-position: 50% 45%; }
+}
+@media (prefers-reduced-motion: reduce) { .cgmk-header { transition: none; } }
