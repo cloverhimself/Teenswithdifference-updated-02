@@ -5,8 +5,8 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Teens With difference</title>
-    <meta name="description" content="">
+    <title>CGM Karu | Welcome Home</title>
+    <meta name="description" content="Welcome to Christ Gospel Mission Karu. Grow in faith, find community and join us for worship in Karu, Abuja.">
     <meta name="author" content="">
 
     <!-- mobile specific metas
@@ -17,6 +17,7 @@
     ================================================== -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/cgmk-home.css?v=20261119-1">
 
     <!-- script
     ================================================== -->
@@ -46,77 +47,36 @@
 
     <!-- header
     ================================================== -->
-    <header class="s-header">
-
-        <div class="header-logo">
-            <a class="site-logo" href="index.html">
-                <p style="
-                color: white;
-                font-weight:bold;
-                font-size: 40px;
-
-                ">T.W.D</p>
-            </a>
-        </div>
-
-        <nav class="header-nav-wrap">
-            <ul class="header-nav">
-                <li class="current"><a href="index.html" title="Home">Home</a></li>
-                <li><a href="about.html" title="About">About</a></li>
-                <li><a href="events.html" title="Services">Events</a></li>
-                <li><a href="contact.html" title="Contact us">Contact</a></li>	
-            </ul>
+    <header class="cgmk-header" id="cgmkHeader">
+        <a class="cgmk-brand" href="index.html" aria-label="CGM Karu home">CGMK<span class="cgmk-brand-dot">.</span></a>
+        <nav class="cgmk-nav" id="cgmkNav" aria-label="Main navigation">
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="about.html">About</a>
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact</a>
         </nav>
+        <a href="contact.html" class="cgmk-nav-action">Plan a Visit <span aria-hidden="true">↗</span></a>
+        <button type="button" class="cgmk-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="cgmkNav">
+            <span></span><span></span>
+        </button>
+    </header>
 
-        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
-
-    </header> <!-- end s-header -->
-
-
-    <!-- hero
-    ================================================== -->
-    <section class="s-hero" data-parallax="scroll" data-image-src="images/5.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
-
-        <div class="hero-left-bar"></div>
-
-        <div class="row hero-content">
-
-            <div class="column large-full hero-content__text">
-                <h1>
-                    We Exist To <br>
-                    Honor God And <br>
-                    Make Disciples<br>
-                    Phil 4:13
-                </h1>
-
-                <div class="hero-content__buttons">
-                    <a href="events.html" class="btn btn--stroke">Upcoming Events</a>
-                    <a href="about.html" class="btn btn--stroke">About Us</a>
+    <main>
+        <section class="cgmk-hero" id="home" aria-labelledby="cgmkHeroTitle">
+            <div class="cgmk-hero-photo" aria-hidden="true"></div>
+            <div class="cgmk-hero-shade" aria-hidden="true"></div>
+            <div class="cgmk-hero-inner">
+                <p class="cgmk-hero-kicker">Christ Gospel Mission · Karu</p>
+                <h1 id="cgmkHeroTitle">A place to grow.<br><em>A family to belong to.</em></h1>
+                <p class="cgmk-hero-description">Come as you are. Grow in faith, find community and experience the joy of following Christ together.</p>
+                <div class="cgmk-hero-actions">
+                    <a href="contact.html" class="cgmk-button cgmk-button-primary">Plan a Visit <span aria-hidden="true">↗</span></a>
+                    <a href="about.html" class="cgmk-button cgmk-button-quiet">Get to Know Us <span aria-hidden="true">→</span></a>
                 </div>
-            </div> <!-- end hero-content__text -->
-
-        </div> <!-- end hero-content -->
-
-        <ul class="hero-social">
-            <li class="hero-social__title">Follow Us</li>
-            <li>
-                <a href="#0" title="">Facebook</a>
-            </li>
-            <li>
-                <a href="#0" title="">YouTube</a>
-            </li>
-            <li>
-                <a href="https://www.instagram.com/cgmkaru_teenschurch/" title="">Instagram</a>
-            </li>
-        </ul> <!-- end hero-social -->
-
-        <div class="hero-scroll">
-            <a href="#about" class="scroll-link smoothscroll">
-                Scroll For More
-            </a>
-        </div> <!-- end hero-scroll -->
-
-    </section> <!-- end s-hero -->
+            </div>
+            <a class="cgmk-hero-scroll" href="#about" aria-label="Scroll to learn about our church"><span>Discover more</span><span aria-hidden="true">↓</span></a>
+        </section>
+    </main>
 
 
     <!-- about
@@ -469,5 +429,6 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/cgmk-home.js?v=20261119-1"></script>
 
 </body>
