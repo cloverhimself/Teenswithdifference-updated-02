@@ -201,3 +201,57 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
  .cgmk-beliefs article { grid-template-columns: 1fr; gap: 9px; }
  .cgmk-belief-number { padding: 0; }
 }
+
+
+/* CGMK-owned Cloudinary photos. Existing repository images remain backup assets. */
+.cgmk-fellowship-men { background-image: url('https://res.cloudinary.com/htec4rnl/image/upload/f_auto,q_auto:good,c_fill,w_900,h_1200/v1795064798/men1.jpg'); }
+.cgmk-fellowship-women { background-image: url('https://res.cloudinary.com/htec4rnl/image/upload/f_auto,q_auto:good,c_fill,w_900,h_1200/v1795064821/Women1.jpg'); }
+.cgmk-fellowship-youth { background-image: url('https://res.cloudinary.com/htec4rnl/image/upload/f_auto,q_auto:good,c_fill,w_900,h_1200/v1795063642/VideoCapture_20261017-190356.jpg'); }
+.cgmk-fellowship-teens { background-image: url('https://res.cloudinary.com/htec4rnl/image/upload/f_auto,q_auto:good,c_fill,w_900,h_1200/v1795064901/cgmk-teenagers-03.jpg'); }
+.cgmk-fellowship-children { background-image: url('https://res.cloudinary.com/htec4rnl/image/upload/f_auto,q_auto:good,c_fill,w_900,h_1200/v1795064629/children5.jpg'); }
+
+/* The source video is 720x1280 portrait. Keep it in a half-width panel on
+   desktop rather than stretching a portrait frame across a widescreen hero.
+   Mobile uses the natural portrait composition. */
+.cgmk-hero { background: #111922; }
+.cgmk-hero-photo { z-index: -3; }
+.cgmk-hero-media { position: absolute; right: 0; top: 0; bottom: 0; width: 50%; z-index: -2; overflow: hidden; background: #0e161e; }
+.cgmk-hero-video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+.cgmk-hero-shade { z-index: -1; background:
+  linear-gradient(90deg, rgba(8,17,23,.9) 0%,rgba(8,17,23,.85) 29%, rgba(8,17,23,.48) 58%, rgba(8,17,23,.17) 100%),
+  linear-gradient(0deg,rgba(8,17,23,.4),transparent 42%); }
+.cgmk-hero-inner { position: relative; z-index: 2; }
+.cgmk-hero-scroll { z-index: 2; }
+.cgmk-pastor { background: #eceae6; padding: clamp(80px,9vw,135px) 0; overflow: hidden; }
+.cgmk-pastor-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(30px,7vw,115px); align-items: center; }
+.cgmk-pastor-visual { position: relative; min-height: clamp(460px,50vw,660px); background: radial-gradient(ellipse at 50% 30%,#49556c 0%,#151e2d 65%,#0b121d 100%); overflow: hidden; display: flex; align-items: flex-end; justify-content: center; }
+.cgmk-pastor-visual img { position: relative; z-index: 1; max-width: 100%; width: auto; height: clamp(440px,48vw,650px); object-fit: contain; object-position: bottom center; display: block; }
+.cgmk-pastor-nameplate { position: absolute; bottom: 3%; left: 50%; transform: translateX(-50%); z-index: 0; font: 800 clamp(110px,14vw,205px)/.85 'Cabinet Grotesk',sans-serif; letter-spacing: -.035em; color: rgba(255,255,255,.11); }
+.cgmk-pastor-bio h2 { font: 700 clamp(47px,5.8vw,82px)/1.04 'Cabinet Grotesk',sans-serif; letter-spacing: -.05em; color: #1c2530; margin: 0 0 23px; text-transform: none; }
+.cgmk-pastor-bio h2 em { font-style: normal; color: #a7333f; font-weight: 600; }
+.cgmk-pastor-bio p:not(.cgmk-kicker) { color: #60686d; font-size: 17px; line-height: 1.75; max-width: 540px; margin: 0 0 23px; }
+.cgmk-pastor-bio .cgmk-pastor-lead { color: #252d33 !important; font-size: clamp(20px,2vw,27px) !important; line-height: 1.4 !important; font-weight: 600; }
+.cgmk-pastor-bio .cgmk-inline-link { margin-top: 14px; }
+@media (max-width: 800px) {
+ .cgmk-hero-media { width: 100%; }
+ .cgmk-hero-video { object-position: center 44%; }
+ .cgmk-hero-photo { display: none; }
+ .cgmk-hero-shade { background: linear-gradient(0deg,rgba(7,14,21,.90) 3%,rgba(7,14,21,.56) 56%,rgba(7,14,21,.44) 100%); }
+ .cgmk-pastor-layout { grid-template-columns: 1fr; gap: 45px; }
+ .cgmk-pastor-visual { min-height: 450px; }
+ .cgmk-pastor-visual img { height: 450px; }
+}
+@media (max-width: 540px) {
+ .cgmk-hero { min-height: 610px; }
+ .cgmk-hero-inner { padding-top: 95px; }
+ .cgmk-hero-video { object-position: 50% 40%; }
+ .cgmk-pastor { padding: 70px 0; }
+ .cgmk-pastor-visual { min-height: 390px; }
+ .cgmk-pastor-visual img { height: 390px; }
+ .cgmk-pastor-bio h2 { font-size: 48px; }
+ .cgmk-pastor-bio p:not(.cgmk-kicker) { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .cgmk-hero-video { display: none; }
+ .cgmk-hero-photo { display: block; z-index: -3; }
+}
