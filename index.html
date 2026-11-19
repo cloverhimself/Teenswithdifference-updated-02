@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800&display=swap">
     <link rel="preload" as="image" href="images/5.jpg" fetchpriority="high">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/cgmk-home.css?v=20261119-mission">
+    <link rel="stylesheet" href="css/cgmk-home.css?v=20261119-media">
 
     <!-- script
     ================================================== -->
@@ -71,6 +71,11 @@
     <main>
         <section class="cgmk-hero" id="home" aria-labelledby="cgmkHeroTitle">
             <img class="cgmk-hero-photo" src="images/5.jpg" alt="" aria-hidden="true" fetchpriority="high" decoding="async" loading="eager">
+            <div class="cgmk-hero-media" aria-hidden="true">
+              <video class="cgmk-hero-video" autoplay muted loop playsinline preload="metadata" poster="images/5.jpg">
+                <source src="https://res.cloudinary.com/htec4rnl/video/upload/so_0,du_9,q_auto:good,w_720/v1795064358/Video_by_cgmkaruabuja.mp4" type="video/mp4">
+              </video>
+            </div>
             <div class="cgmk-hero-shade" aria-hidden="true"></div>
             <div class="cgmk-hero-inner">
                 
@@ -116,6 +121,23 @@
           <div class="cgmk-activity"><span class="cgmk-activity-day">Thursday</span><span class="cgmk-activity-name">Prayer Meeting</span><i class="bi bi-heart" aria-hidden="true"></i></div>
         </div>
         <a href="contact.html" class="cgmk-inline-link">Get in touch for service details <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+
+    <!-- Lead pastor: original CGMK portrait layout -->
+    <section class="cgmk-pastor" id="pastor" aria-labelledby="pastorTitle">
+      <div class="cgmk-site-container cgmk-pastor-layout">
+        <div class="cgmk-pastor-visual">
+          <img src="https://cgmk-karu.daringlyric28.chatgpt.site/pastor-seun-popoola-cutout.png" alt="Pastor Seun Popoola speaking into a microphone" loading="lazy" decoding="async">
+          <span class="cgmk-pastor-nameplate">SEUN</span>
+        </div>
+        <div class="cgmk-pastor-bio">
+          <p class="cgmk-kicker">Meet our lead pastor</p>
+          <h2 id="pastorTitle">Pastor Seun<br><em>Popoola.</em></h2>
+          <p class="cgmk-pastor-lead">Teaching the Word. Building people. Leading a praying church family.</p>
+          <p>Pastor Seun Popoola serves the CGM Karu family through biblical teaching, prayer, discipleship and pastoral care.</p>
+          <a class="cgmk-inline-link" href="about.html">More about CGM Karu <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </section>
 
