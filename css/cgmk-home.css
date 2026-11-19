@@ -316,3 +316,7 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
 .cgmk-fellowships-contact { margin:23px 0 0; font:500 14px/1.6 'Cabinet Grotesk',sans-serif; color:#5d636a; }
 .cgmk-fellowships-contact a { margin-left:6px; color:#a02e39 !important; text-decoration:underline; text-underline-offset:4px; font-weight:700; }
 @media (max-width:800px) { .cgmk-fellowship-card.is-pinned { flex-grow:initial; box-shadow:inset 0 0 0 3px #b5323c; } }
+
+/* CGMK navbar wordmark punctuation */
+.cgmk-brand { letter-spacing: .095em; }
+.cgmk-brand-dot { display: inline-block; margin-left: .07em; letter-spacing: 0; }
