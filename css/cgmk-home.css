@@ -141,3 +141,63 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
 @media (prefers-reduced-motion: reduce) {
  .cgmk-fellowship-card, .cgmk-fellowship-description, .cgmk-fellowship-more i { transition: none; }
 }
+
+
+/* CGMK Mission, philosophy and weekly activities */
+.cgmk-home-about, .cgmk-activities, .cgmk-about-hero, .cgmk-about-content-section,
+.cgmk-home-about *, .cgmk-activities *, .cgmk-about-hero *, .cgmk-about-content-section * { box-sizing: border-box; }
+.cgmk-kicker { font: 700 11px/1.4 'Cabinet Grotesk', sans-serif; text-transform: uppercase; letter-spacing: .15em; color: #a83f4b; margin: 0 0 22px; }
+.cgmk-home-about { padding: clamp(80px,11vw,155px) 0; background: #f7f5f1; }
+.cgmk-home-about-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(40px,7vw,115px); align-items: center; }
+.cgmk-home-about-copy h2, .cgmk-activities-header h2, .cgmk-about-intro h2 { font: 650 clamp(42px,5.7vw,79px)/1.05 'Cabinet Grotesk',sans-serif; color: #19202a; letter-spacing: -.047em; margin: 0 0 25px; text-transform: none; }
+.cgmk-home-about-copy h2 em, .cgmk-activities-header h2 em, .cgmk-about-intro h2 em { font-style: normal; color: #b5323c; font-weight: 550; }
+.cgmk-home-about-copy > p:not(.cgmk-kicker) { font-size: 17px; line-height: 1.8; color: #5a6064; max-width: 570px; margin: 0 0 29px; }
+.cgmk-inline-link { font: 700 13px/1.4 'Cabinet Grotesk',sans-serif; display: inline-flex; align-items: center; gap: 16px; color: #a02e39 !important; border-bottom: 1px solid currentColor; padding-bottom: 9px; text-decoration: none !important; }
+.cgmk-inline-link:hover { color: #721b28 !important; }
+.cgmk-home-about-image { background: #d9d9d5; overflow: hidden; }
+.cgmk-home-about-image img { display: block; width: 100%; height: clamp(380px,38vw,580px); object-fit: cover; }
+.cgmk-activities { padding: clamp(78px,9vw,125px) 0; background: #fff; }
+.cgmk-activities-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 45px; }
+.cgmk-activities-header h2 { margin-bottom: 0; }
+.cgmk-activities-header > p { font-size: 15px; line-height: 1.7; max-width: 320px; color: #687076; margin: 0 0 8px; }
+.cgmk-activities-list { border-top: 1px solid #d8dadc; margin-bottom: 32px; }
+.cgmk-activity { padding: clamp(19px,2.5vw,34px) 8px; border-bottom: 1px solid #d8dadc; display: grid; grid-template-columns: 1fr 2fr 40px; align-items: center; column-gap: 20px; }
+.cgmk-activity-day { font: 600 16px/1.4 'Cabinet Grotesk',sans-serif; color: #73787d; }
+.cgmk-activity-name { font: 650 clamp(25px,3.25vw,43px)/1.15 'Cabinet Grotesk',sans-serif; letter-spacing: -.03em; color: #1b242b; }
+.cgmk-activity > i { color: #b5323c; text-align: center; font-size: 24px; }
+.cgmk-about-page { margin: 0; background: #f8f7f4; color: #1b242b; font-family: 'Cabinet Grotesk',sans-serif; }
+.cgmk-about-page .cgmk-inner-header { z-index: 1100; }
+.cgmk-about-hero { position: relative; padding: clamp(160px,19vw,255px) 0 clamp(88px,9vw,130px); background: linear-gradient(90deg,rgba(10,22,32,.88),rgba(10,22,32,.47)),url('../images/5.jpg') center/cover no-repeat; color: #fff; }
+.cgmk-about-hero .cgmk-kicker { color: #f3c4bc; }
+.cgmk-about-hero h1 { font: 700 clamp(51px,7vw,106px)/1.05 'Cabinet Grotesk',sans-serif; letter-spacing: -.058em; color: #fff; margin: 0 0 27px; text-transform: none; }
+.cgmk-about-hero h1 em { font-weight: 500; font-style: normal; }
+.cgmk-about-hero p:last-child { color: #e3e8e9; max-width: 580px; font-size: 18px; line-height: 1.7; margin: 0; }
+.cgmk-about-content-section { padding: clamp(84px,11vw,154px) 0; background: #f7f5f1; }
+.cgmk-about-intro { max-width: 840px; margin-bottom: clamp(55px,7vw,90px); }
+.cgmk-about-intro > p:last-child { color: #60686e; font-size: 17px; line-height: 1.8; margin: 0; }
+.cgmk-beliefs { margin-bottom: 40px; border-top: 1px solid #cbd0d3; }
+.cgmk-beliefs article { display: grid; grid-template-columns: 110px 1fr; gap: 35px; border-bottom: 1px solid #cbd0d3; padding: clamp(32px,5vw,66px) 0; }
+.cgmk-belief-number { font: 600 14px/1.2 'Cabinet Grotesk',sans-serif; color: #ad4350; padding-top: 8px; }
+.cgmk-beliefs h3 { font: 650 clamp(32px,4vw,57px)/1.12 'Cabinet Grotesk',sans-serif; color: #1b242b; letter-spacing: -.038em; margin: 0 0 18px; }
+.cgmk-beliefs p { font-size: clamp(16px,1.6vw,21px); line-height: 1.65; max-width: 790px; color: #535e64; margin: 0; }
+@media (max-width: 800px) {
+ .cgmk-home-about-grid { grid-template-columns: 1fr; gap: 38px; }
+ .cgmk-home-about-image img { height: 410px; }
+ .cgmk-activities-header { display: block; margin-bottom: 30px; }
+ .cgmk-activities-header > p { max-width: 550px; margin-top: 15px; }
+ .cgmk-activity { grid-template-columns: 120px 1fr 32px; }
+ .cgmk-beliefs article { grid-template-columns: 50px 1fr; gap: 15px; }
+}
+@media (max-width: 540px) {
+ .cgmk-home-about-copy h2, .cgmk-activities-header h2, .cgmk-about-intro h2 { font-size: 43px; }
+ .cgmk-home-about-image img { height: 330px; }
+ .cgmk-activity { grid-template-columns: 85px 1fr 22px; column-gap: 9px; padding: 23px 0; }
+ .cgmk-activity-day { font-size: 13px; }
+ .cgmk-activity-name { font-size: 23px; }
+ .cgmk-activity > i { font-size: 18px; }
+ .cgmk-about-hero { padding: 160px 0 95px; }
+ .cgmk-about-hero h1 { font-size: 47px; }
+ .cgmk-about-hero p:last-child { font-size: 16px; }
+ .cgmk-beliefs article { grid-template-columns: 1fr; gap: 9px; }
+ .cgmk-belief-number { padding: 0; }
+}
