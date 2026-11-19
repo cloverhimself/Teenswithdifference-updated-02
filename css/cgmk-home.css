@@ -257,7 +257,7 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
 
 /* Persistent, readable navigation across the entire page */
 .cgmk-header { position: fixed; width: 100%; transition: background-color .25s ease, box-shadow .25s ease, padding .25s ease; }
-.cgmk-header.is-scrolled, .cgmk-header.is-menu-open { background: rgba(10,17,24,.94); box-shadow: 0 1px 0 rgba(255,255,255,.1), 0 8px 28px rgba(0,0,0,.12); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+.cgmk-header.is-scrolled, .cgmk-header.is-menu-open { background: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
 .cgmk-header.is-scrolled { padding-top: 13px; padding-bottom: 13px; min-height: 69px; }
 .cgmk-hero-video { object-fit: cover; object-position: center center; }
 .cgmk-hero-media { pointer-events: none; }
@@ -267,3 +267,36 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
  .cgmk-hero-video { object-position: 50% 45%; }
 }
 @media (prefers-reduced-motion: reduce) { .cgmk-header { transition: none; } }
+
+/* 2026-11-19: transparent, contrast-sensitive sticky navigation.
+   Difference blending turns white CGMK lettering dark on light imagery and
+   preserves white lettering over dark video/sections without a background bar. */
+.cgmk-header,
+.cgmk-header.is-scrolled { background: transparent !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; mix-blend-mode: difference; }
+.cgmk-header .cgmk-brand,
+.cgmk-header .cgmk-nav a,
+.cgmk-header .cgmk-nav-action { color: #fff !important; }
+.cgmk-header .cgmk-nav-action { border-color: #fff; background: transparent; }
+.cgmk-header .cgmk-menu-toggle { border-color: #fff; }
+.cgmk-header .cgmk-menu-toggle span { background: #fff; }
+/* Mobile dropdown is an intentional separate opaque surface for accessible legibility. */
+.cgmk-header.is-menu-open { mix-blend-mode: normal; background: transparent !important; }
+.cgmk-header.is-menu-open .cgmk-brand,
+.cgmk-header.is-menu-open .cgmk-nav-action { text-shadow: 0 1px 7px rgba(0,0,0,.9), 0 0 18px rgba(0,0,0,.6); }
+.cgmk-header.is-menu-open .cgmk-nav-action { border-color: rgba(255,255,255,.85); }
+.cgmk-header.is-menu-open .cgmk-menu-toggle { background: #101b24; border-color: #fff; }
+.cgmk-header.is-menu-open .cgmk-nav { background: #15212a; }
+.cgmk-fellowship-deck { height: clamp(500px,48vw,650px); }
+.cgmk-fellowship-card:hover,
+.cgmk-fellowship-card:focus-visible { flex-grow: 4.6; }
+@media (max-width: 800px) {
+ .cgmk-fellowship-deck { height: auto; }
+ .cgmk-fellowship-card { height: 350px; }
+ .cgmk-fellowship-card:last-child { height: 360px; }
+ .cgmk-fellowship-card:hover,
+ .cgmk-fellowship-card:focus-visible { flex-grow: initial; }
+}
+@media (max-width: 540px) {
+ .cgmk-fellowship-card,
+ .cgmk-fellowship-card:last-child { height: 330px; }
+}
