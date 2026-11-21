@@ -444,3 +444,10 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
 @media(max-width:850px){.cgmk-media-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.cgmk-media-shell{grid-template-columns:170px minmax(0,1fr);}.cgmk-side-item{font-size:13px;padding:12px 9px;gap:8px;}.cgmk-media-content{padding-left:20px;padding-right:20px;}}
 @media(max-width:650px){.cgmk-media-shell{display:block;padding-top:90px;}.cgmk-media-aside{position:static;min-height:0;height:auto;border-radius:0;padding:8px 14px;background:#171717;}.cgmk-aside-top{display:flex;align-items:center;gap:5px;overflow-x:auto;}.cgmk-aside-label,.cgmk-aside-rule,.cgmk-aside-visit{display:none;}.cgmk-side-item{width:auto;white-space:nowrap;flex:none;padding:13px;}.cgmk-media-toolbar{min-height:72px;}.cgmk-media-filters{padding:16px 0;}.cgmk-media-intro{padding-top:26px;}.cgmk-media-grid{gap:20px 12px;}.cgmk-media-grid .cgmk-library-art{height:190px;}.cgmk-media-content{padding:0 16px 60px;}.cgmk-header .cgmk-nav.is-open{background:#173f78!important;}.cgmk-header .cgmk-nav.is-open a{color:#fff!important;}}
 @media(max-width:370px){.cgmk-media-grid .cgmk-library-art{height:155px;}}
+
+/* Sidebar fixes: keep navigation visible while the media grid scrolls, no red marker */
+@media (min-width:651px){
+.cgmk-media-shell{align-items:stretch;}
+.cgmk-media-aside{position:sticky!important;top:0!important;height:100vh!important;max-height:100vh!important;min-height:0!important;align-self:start!important;overflow-y:auto;overscroll-behavior:contain;z-index:5;}
+}
+.cgmk-media-aside .cgmk-side-item.is-selected{box-shadow:none!important;border-left:0!important;}
