@@ -1,0 +1,26 @@
+name: Mobile layout checks
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  responsive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependencies
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Check page widths and screenshot pages
+        run: node .github/scripts/check-responsive.cjs
+      - name: Save viewport screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cgmk-responsive-screenshots
+          path: responsive-screenshots/
