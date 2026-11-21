@@ -380,3 +380,67 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
 .cgmk-library-card[hidden],.cgmk-library-empty[hidden],.cgmk-library-filters button[hidden]{display:none!important;}
 @media(max-width:850px){.cgmk-values-grid,.cgmk-library-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.cgmk-library{grid-template-columns:190px minmax(0,1fr);gap:20px;}.cgmk-library-head{display:block;}.cgmk-library-search{margin-top:20px;width:100%;}}
 @media(max-width:650px){.cgmk-history-timeline article{grid-template-columns:1fr;gap:10px;}.cgmk-values-grid,.cgmk-library-grid{grid-template-columns:1fr;}.cgmk-library{display:block;padding-top:30px;}.cgmk-library-sidebar{position:static;display:flex;gap:5px;flex-wrap:wrap;margin-bottom:30px;padding:12px;}.cgmk-library-sidebar h2{width:100%;margin:5px 8px;}.cgmk-library-sidebar button{width:auto;padding:11px;font-size:13px;}.cgmk-media-hero{padding-top:145px;}.cgmk-activity-time{font-size:12px;}.cgmk-nav.is-open{background:#173f78!important;}.cgmk-nav.is-open a{color:white!important;}}
+
+
+/* 2026 CGMK navigation and reference-inspired media experience */
+.cgmk-header,.cgmk-header.is-scrolled,.cgmk-header.cgmk-inner-header,.cgmk-header.is-menu-open{background:transparent!important;box-shadow:none!important;border:0!important;backdrop-filter:none!important;}
+.cgmk-nav{background:transparent!important;}
+.cgmk-header .cgmk-nav a,.cgmk-header .cgmk-brand{color:#fff!important;text-shadow:0 2px 9px rgba(0,0,0,.75);}
+.cgmk-header .cgmk-nav a{font-weight:750!important;}
+.cgmk-header .cgmk-nav-action{box-shadow:0 3px 12px rgba(0,0,0,.18);}
+.cgmk-media-page{margin:0;background:#101010;color:#f6f6f6;min-height:100vh;font-family:'Cabinet Grotesk',sans-serif;}
+.cgmk-media-page .cgmk-header{position:absolute!important;z-index:50;min-height:83px;padding:18px clamp(24px,4vw,70px);}
+.cgmk-media-page .cgmk-header.is-scrolled{background:transparent!important;}
+.cgmk-media-shell{display:grid;grid-template-columns:260px minmax(0,1fr);gap:0;min-height:100vh;padding-top:85px;background:#101010;}
+.cgmk-media-aside{position:sticky;top:0;height:calc(100vh - 85px);min-height:480px;background:#181818;border-right:1px solid #282828;border-radius:0 11px 11px 0;padding:24px 15px 25px;display:flex;flex-direction:column;justify-content:space-between;align-self:start;}
+.cgmk-aside-label{font:700 11px/1.4 'Cabinet Grotesk',sans-serif;color:#777;letter-spacing:.15em;padding:8px 15px;margin:0 0 10px;}
+.cgmk-side-item{display:flex;align-items:center;gap:14px;width:100%;border:0;background:transparent;border-radius:9px;padding:15px;font:650 16px/1.1 'Cabinet Grotesk',sans-serif;text-decoration:none!important;color:#aaa!important;text-align:left;cursor:pointer;}
+.cgmk-side-item i{font-size:19px;}
+.cgmk-side-item:hover,.cgmk-side-item.is-selected{background:#303030;color:#fff!important;}
+.cgmk-side-item.is-selected{box-shadow:inset 3px 0 0 var(--cgmk-red);}
+.cgmk-aside-rule{height:1px;background:#303030;margin:22px 10px;}
+.cgmk-aside-visit{color:#aaa!important;font:650 14px 'Cabinet Grotesk',sans-serif;text-decoration:none;display:flex;align-items:center;gap:10px;padding:15px;}
+.cgmk-aside-visit:hover{color:#fff!important;}
+.cgmk-media-content{min-width:0;padding:0 clamp(22px,3.1vw,56px) 90px;}
+.cgmk-media-toolbar{min-height:86px;display:flex;justify-content:space-between;align-items:center;gap:18px;border-bottom:1px solid #242424;}
+.cgmk-media-search-wrap{position:relative;max-width:380px;width:100%;}
+.cgmk-media-search-wrap i{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#8c8c8c;font-size:18px;}
+.cgmk-media-search-wrap input{display:block;border:1px solid #2a2a2a!important;background:#252525!important;color:white!important;border-radius:999px;width:100%;height:43px;padding:10px 16px 10px 45px;font:550 14px 'Cabinet Grotesk',sans-serif;}
+.cgmk-media-search-wrap input::placeholder{color:#999;}
+.cgmk-media-search-wrap input:focus{outline:2px solid #c64358;outline-offset:2px;}
+.cgmk-media-count{white-space:nowrap;color:#919191;font-size:13px;}
+.cgmk-media-filters{display:flex;gap:10px;overflow-x:auto;scrollbar-width:thin;white-space:nowrap;padding:23px 0;}
+.cgmk-filter-chip{flex:none;border:1px solid #303030;background:#242424;color:#e9e9e9;padding:9px 16px;border-radius:24px;cursor:pointer;font:650 13px 'Cabinet Grotesk',sans-serif;transition:background .2s;}
+.cgmk-filter-chip:hover{background:#343434;}
+.cgmk-filter-chip.active{background:#b5263d;border-color:#b5263d;color:#fff;}
+.cgmk-media-intro{padding:45px 0 28px;}
+.cgmk-media-eyebrow{font-size:12px;letter-spacing:.16em;font-weight:700;color:#ed8898!important;margin:0 0 10px;}
+.cgmk-media-intro h1{margin:0 0 9px;color:#fff;font:800 clamp(36px,4vw,59px)/1.08 'Cabinet Grotesk',sans-serif;letter-spacing:-.045em;}
+.cgmk-media-intro h1 em{color:#e55b6f;font-style:normal;}
+.cgmk-media-intro h2{margin:0 0 8px;color:#f6f6f6;font:700 clamp(20px,2vw,26px) 'Cabinet Grotesk',sans-serif;}
+.cgmk-media-intro p:last-child{font:450 14px/1.6 'Cabinet Grotesk',sans-serif;color:#a9a9a9;margin:0;max-width:680px;}
+.cgmk-media-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 20px;}
+.cgmk-media-grid[hidden]{display:none;}
+.cgmk-media-grid .cgmk-library-card{min-width:0;appearance:none;background:transparent;border:0!important;padding:0;margin:0;border-radius:0;color:#fff;cursor:pointer;text-align:left;box-shadow:none;}
+.cgmk-media-grid .cgmk-library-art{display:block;height:clamp(150px,17vw,240px);overflow:hidden;border-radius:9px;background:#080808;}
+.cgmk-media-grid .cgmk-library-art img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
+.cgmk-media-grid .cgmk-library-card:hover img{transform:scale(1.04);}
+.cgmk-media-grid .cgmk-library-card:focus-visible{outline:2px solid #e55b6f;outline-offset:5px;}
+.cgmk-media-grid .cgmk-library-caption{padding:11px 2px 0;display:block;}
+.cgmk-media-grid .cgmk-library-caption strong{display:block;color:#f5f5f5;font:700 14px/1.3 'Cabinet Grotesk',sans-serif;}
+.cgmk-media-grid .cgmk-library-caption>span{display:flex;justify-content:space-between;align-items:center;margin-top:4px;color:#999;font:500 12px/1.2 'Cabinet Grotesk',sans-serif;}
+.cgmk-media-no-results{padding:90px 20px;background:#181818;border:1px solid #2a2a2a;border-radius:12px;text-align:center;}
+.cgmk-media-no-results[hidden]{display:none;}
+.cgmk-media-no-results i{font-size:35px;color:#e55b6f;}
+.cgmk-media-no-results h3{font-size:25px;color:#fff;margin:18px 0 8px;}
+.cgmk-media-no-results p{color:#aaa;margin:0;}
+.cgmk-photo-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.94);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:50px 20px 20px;}
+.cgmk-photo-lightbox[hidden]{display:none;}
+.cgmk-photo-lightbox img{display:block;max-width:min(98vw,1500px);max-height:82vh;object-fit:contain;}
+.cgmk-photo-lightbox p{font:650 14px 'Cabinet Grotesk',sans-serif;color:#ddd;margin:14px 0;}
+.cgmk-lightbox-close{position:absolute;top:20px;right:24px;border:0;background:#2e2e2e;color:#fff;border-radius:50%;height:45px;width:45px;cursor:pointer;}
+.cgmk-no-scroll{overflow:hidden!important;}
+@media(max-width:1150px){.cgmk-media-grid{grid-template-columns:repeat(3,minmax(0,1fr));}.cgmk-media-shell{grid-template-columns:215px minmax(0,1fr);}}
+@media(max-width:850px){.cgmk-media-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.cgmk-media-shell{grid-template-columns:170px minmax(0,1fr);}.cgmk-side-item{font-size:13px;padding:12px 9px;gap:8px;}.cgmk-media-content{padding-left:20px;padding-right:20px;}}
+@media(max-width:650px){.cgmk-media-shell{display:block;padding-top:90px;}.cgmk-media-aside{position:static;min-height:0;height:auto;border-radius:0;padding:8px 14px;background:#171717;}.cgmk-aside-top{display:flex;align-items:center;gap:5px;overflow-x:auto;}.cgmk-aside-label,.cgmk-aside-rule,.cgmk-aside-visit{display:none;}.cgmk-side-item{width:auto;white-space:nowrap;flex:none;padding:13px;}.cgmk-media-toolbar{min-height:72px;}.cgmk-media-filters{padding:16px 0;}.cgmk-media-intro{padding-top:26px;}.cgmk-media-grid{gap:20px 12px;}.cgmk-media-grid .cgmk-library-art{height:190px;}.cgmk-media-content{padding:0 16px 60px;}.cgmk-header .cgmk-nav.is-open{background:#173f78!important;}.cgmk-header .cgmk-nav.is-open a{color:#fff!important;}}
+@media(max-width:370px){.cgmk-media-grid .cgmk-library-art{height:155px;}}
