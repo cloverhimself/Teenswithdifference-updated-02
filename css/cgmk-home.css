@@ -451,3 +451,100 @@ body label, body blockquote, body small, body strong, body span:not([class*="ico
 .cgmk-media-aside{position:sticky!important;top:0!important;height:100vh!important;max-height:100vh!important;min-height:0!important;align-self:start!important;overflow-y:auto;overscroll-behavior:contain;z-index:5;}
 }
 .cgmk-media-aside .cgmk-side-item.is-selected{box-shadow:none!important;border-left:0!important;}
+
+
+/* Responsive pass, November 2026. Fixed navigation to avoid sticky failures
+   caused by ancestor overflow and large scrolling grid containers. */
+*,*::before,*::after{box-sizing:border-box;}
+html,body{max-width:100%;}
+img,video,iframe{max-width:100%;}
+.cgmk-media-page{overflow-x:clip!important;}
+.cgmk-media-page .cgmk-media-shell{display:block!important;min-height:100vh;padding-top:85px;}
+.cgmk-media-page .cgmk-media-aside{
+ position:fixed!important;top:85px!important;left:0;bottom:0!important;
+ width:260px;height:auto!important;max-height:none!important;min-height:0!important;
+ overflow-y:auto!important;z-index:30;align-self:auto!important;
+ border-radius:0 10px 0 0;
+}
+.cgmk-media-page .cgmk-media-content{margin-left:260px;min-width:0;max-width:calc(100% - 260px);}
+.cgmk-media-page .cgmk-media-aside .cgmk-side-item.is-selected{box-shadow:none!important;border-left:0!important;}
+.cgmk-media-page .cgmk-media-filters{max-width:100%;overscroll-behavior-x:contain;}
+.cgmk-media-page .cgmk-library-card[hidden]{display:none!important;}
+.cgmk-media-page .cgmk-media-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+.cgmk-media-page .cgmk-media-grid .cgmk-library-art{height:auto;aspect-ratio:1.15;overflow:hidden;}
+.cgmk-media-page .cgmk-media-grid .cgmk-library-art img{width:100%;height:100%;object-fit:cover;}
+.cgmk-header{max-width:100%;gap:clamp(10px,2vw,25px);}
+.cgmk-header .cgmk-nav{gap:clamp(12px,2vw,29px);min-width:0;}
+.cgmk-header .cgmk-brand{flex-shrink:0;}
+.cgmk-header .cgmk-nav-action{flex-shrink:0;}
+.cgmk-site-container{max-width:100%;min-width:0;}
+.cgmk-fellowships-heading,.cgmk-activities-header,.cgmk-home-about-grid,.cgmk-pastor-layout{min-width:0;}
+.cgmk-fellowships-heading>*,.cgmk-activities-header>*,.cgmk-home-about-grid>*,.cgmk-pastor-layout>*{min-width:0;}
+.cgmk-history-intro,.cgmk-about-intro{max-width:100%;}
+@media (max-width:1250px){
+ .cgmk-media-page .cgmk-media-aside{width:220px;}
+ .cgmk-media-page .cgmk-media-content{margin-left:220px;max-width:calc(100% - 220px);}
+ .cgmk-media-page .cgmk-media-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+ .cgmk-header{padding-left:clamp(20px,3vw,45px);padding-right:clamp(20px,3vw,45px);}
+}
+@media (max-width:950px){
+ .cgmk-media-page .cgmk-media-aside{width:185px;}
+ .cgmk-media-page .cgmk-media-content{margin-left:185px;max-width:calc(100% - 185px);padding-left:20px;padding-right:20px;}
+ .cgmk-media-page .cgmk-media-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px;}
+ .cgmk-media-page .cgmk-side-item{font-size:14px;}
+ .cgmk-values-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:760px){
+ .cgmk-header{min-height:74px;padding:15px 20px;}
+ .cgmk-header .cgmk-brand{font-size:24px;}
+ .cgmk-header .cgmk-nav-action{font-size:11px;padding:10px 12px;}
+ .cgmk-header .cgmk-nav{z-index:100;background:#173f78!important;}
+ .cgmk-header .cgmk-nav.is-open{background:#173f78!important;max-height:calc(100dvh - 74px);overflow-y:auto;}
+ .cgmk-header .cgmk-nav.is-open a{color:#fff!important;text-shadow:none;}
+ .cgmk-home-about-grid,.cgmk-pastor-layout{grid-template-columns:minmax(0,1fr);}
+ .cgmk-fellowships-heading,.cgmk-activities-header{flex-wrap:wrap;gap:18px;}
+ .cgmk-fellowships-heading p,.cgmk-activities-header p{max-width:100%;}
+ .cgmk-media-page .cgmk-media-shell{padding-top:74px;}
+ .cgmk-media-page .cgmk-media-aside{top:74px!important;}
+}
+@media (max-width:650px){
+ .cgmk-media-page .cgmk-media-aside{
+   position:sticky!important;top:0!important;left:auto;bottom:auto!important;
+   width:100%!important;height:auto!important;max-height:none!important;min-height:0!important;
+   padding:8px 12px;border:0;border-bottom:1px solid #303030;
+   border-radius:0;z-index:35;overflow:visible!important;
+ }
+ .cgmk-media-page .cgmk-media-shell{display:block!important;padding-top:74px;}
+ .cgmk-media-page .cgmk-media-content{margin:0!important;max-width:100%!important;width:100%;padding:0 15px 65px;}
+ .cgmk-media-page .cgmk-aside-top{display:flex;gap:5px;align-items:center;overflow-x:auto;scrollbar-width:none;}
+ .cgmk-media-page .cgmk-side-item{font-size:13px;white-space:nowrap;min-height:42px;}
+ .cgmk-media-page .cgmk-media-toolbar{min-height:70px;gap:10px;}
+ .cgmk-media-page .cgmk-media-count{font-size:11px;}
+ .cgmk-media-page .cgmk-media-intro{padding:24px 0;}
+ .cgmk-media-page .cgmk-media-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 10px;}
+ .cgmk-media-page .cgmk-media-grid .cgmk-library-art{aspect-ratio:.92;}
+ .cgmk-media-page .cgmk-media-grid .cgmk-library-caption strong{font-size:13px;}
+ .cgmk-media-page .cgmk-media-filters{gap:7px;padding:13px 0;}
+ .cgmk-media-page .cgmk-filter-chip{font-size:12px;padding:8px 12px;}
+ .cgmk-values-grid{grid-template-columns:1fr;}
+ .cgmk-hero{min-height:570px;height:100svh;}
+ .cgmk-hero h1{overflow-wrap:normal;hyphens:auto;}
+ .cgmk-activity{flex-wrap:wrap;}
+ .cgmk-activity-time{margin-left:auto;}
+ .cgmk-fellowship-deck{width:100%;}
+}
+@media (max-width:390px){
+ .cgmk-media-page .cgmk-media-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 8px;}
+ .cgmk-media-page .cgmk-media-grid .cgmk-library-art{aspect-ratio:.84;}
+ .cgmk-media-page .cgmk-media-search-wrap input{font-size:12px;}
+ .cgmk-header{padding-left:14px;padding-right:14px;gap:8px;}
+ .cgmk-header .cgmk-nav-action{padding:9px 10px;}
+ .cgmk-history-timeline article{padding:22px 0;}
+ .cgmk-values-grid article{padding:22px;}
+}
+@media (max-width:320px){
+ .cgmk-media-page .cgmk-media-grid{grid-template-columns:1fr;}
+ .cgmk-media-page .cgmk-media-grid .cgmk-library-art{aspect-ratio:1.3;}
+ .cgmk-media-page .cgmk-media-count{display:none;}
+ .cgmk-header .cgmk-brand{font-size:21px;}
+}
