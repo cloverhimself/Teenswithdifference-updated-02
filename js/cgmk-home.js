@@ -30,7 +30,11 @@
     card.setAttribute('aria-pressed', 'false');
   });
   cards.forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('.cgmk-fellowship-more')) {
+        window.location.assign('media.html');
+        return;
+      }
       const wasPinned = card.classList.contains('is-pinned');
       clear();
       if (!wasPinned) {
