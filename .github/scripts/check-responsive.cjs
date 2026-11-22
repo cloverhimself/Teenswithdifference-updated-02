@@ -6,7 +6,7 @@ const path = require('node:path');
   const server = spawn('python3', ['-m', 'http.server', '8765', '--bind', '127.0.0.1'], { stdio: 'ignore' });
   const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });
   const widths = [320, 360, 375, 390, 414, 430, 540, 650, 768, 900, 1024, 1280, 1440];
-  const pages = ['index.html', 'about.html', 'media.html'];
+  const pages = ['index.html', 'about.html', 'media.html', 'contact.html'];
   const problems = [];
   fs.mkdirSync('responsive-screenshots', { recursive: true });
   try {
@@ -40,6 +40,10 @@ const path = require('node:path');
           const c=result.calendarChecks;
           if (!c || c.count < 28 || c.badCells || !['0px','normal'].includes(c.letterSpacing) || c.textTransform !== 'none' || c.controls.length !== 2 || c.controls.some(b=>Math.abs(b.width-b.height)>2 || b.width > 40)) problems.push({ pageName, width, calendarProblem:c });
         }
+        if (pageName === 'contact.html') {
+          if (await page.locator('.cgmk-connect-item').count() < 5) problems.push({pageName,width,interaction:'Contact options missing'});
+          if (await page.locator('#connectForm').count()) problems.push({pageName,width,interaction:'Legacy contact form still present'});
+        }
         if (pageName === 'about.html') {
           const initial = await page.locator('#cgmk-mission-panel').isVisible();
           const hidden = await page.locator('#cgmk-philosophy-panel').isHidden();
@@ -47,10 +51,8 @@ const path = require('node:path');
           await page.locator('#cgmk-philosophy-tab').click();
           const switched = await page.locator('#cgmk-philosophy-panel').isVisible();
           if (!switched || await page.locator('#cgmk-mission-panel').isVisible()) problems.push({ pageName, width, interaction:'Mission philosophy switch failed' });
-          const values = page.locator('.cgmk-value-row');
-          if (await values.count() !== 6) problems.push({ pageName, width, interaction:'Core value count incorrect' });
-          await values.nth(1).locator('summary').click();
-          if (!await values.nth(1).evaluate(e=>e.open) || await values.nth(0).evaluate(e=>e.open)) problems.push({ pageName, width, interaction:'Core value accordion failed' });
+          if (await page.locator('.cgmk-value-row').count() !== 0) problems.push({ pageName, width, interaction:'Removed values still present' });
+          if (await page.locator('.cgmk-identity-photo img').count() !== 2) problems.push({ pageName, width, interaction:'Mission or philosophy image missing' });
           if (!await page.locator('.cgmk-about-hero-image').count()) problems.push({ pageName, width, interaction:'About hero image absent' });
         }
         if ([320, 375, 430, 768, 1280].includes(width)) await page.screenshot({ path: path.join('responsive-screenshots', pageName.replace('.html', '') + '-' + width + '.png'), fullPage: true });
