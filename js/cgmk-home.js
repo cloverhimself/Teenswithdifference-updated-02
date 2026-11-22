@@ -15,7 +15,8 @@
     doc.classList.remove('cgmk-drawer-open');
     toggle.setAttribute('aria-expanded','false');
     toggle.setAttribute('aria-label','Open navigation');
-    nav.setAttribute('aria-hidden','true');
+    if(window.innerWidth<=900)nav.setAttribute('aria-hidden','true');
+    else nav.removeAttribute('aria-hidden');
     if(restore)toggle.focus({preventScroll:true});
     syncHeader();
   };
@@ -41,7 +42,10 @@
       if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}
     }
   });
-  window.addEventListener('resize',()=>{if(window.innerWidth>900)close(false);},{passive:true});
+  window.addEventListener('resize',()=>{
+    if(window.innerWidth>900){close(false);nav.removeAttribute('aria-hidden');}
+    else if(!isOpen())nav.setAttribute('aria-hidden','true');
+  },{passive:true});
   window.addEventListener('scroll',syncHeader,{passive:true});
   syncHeader();
 })();
