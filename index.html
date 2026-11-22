@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800&display=swap">
     <link rel="preload" as="image" href="images/5.jpg" fetchpriority="high">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/cgmk-home.css?v=20261122-connect">
+    <link rel="stylesheet" href="css/cgmk-home.css?v=20261122-drawer">
     <link rel="stylesheet" href="css/cgmk-calendar.css?v=20261122-brand">
 
     <!-- script
@@ -61,7 +61,8 @@
             <a href="index.html" aria-current="page">Home</a>
             <a href="about.html">About</a>
             <a href="media.html">Media</a>
-            <a href="events.html">Events</a>
+            <a href="index.html#activities">Events</a>
+<a href="give.html">Give</a>
             <a href="contact.html">Contact</a>
         </nav>
         <a href="https://www.youtube.com/@cgmkaruabuja977/live" target="_blank" rel="noopener noreferrer" class="cgmk-nav-action">Watch Live <span aria-hidden="true">↗</span></a>
@@ -102,9 +103,13 @@
     <div class="cgmk-calendar-days" id="calendarDays" aria-label="Days of the month"></div>
     <div class="cgmk-calendar-legend"><span><i class="cgmk-dot cgmk-dot-sun"></i> Sunday Service</span><span><i class="cgmk-dot cgmk-dot-tue"></i> Bible Study</span><span><i class="cgmk-dot cgmk-dot-thu"></i> Prayer Meeting</span></div>
    </div>
-   <div class="cgmk-upcoming" data-reveal><div class="cgmk-upcoming-head"><div><h3>Upcoming gatherings</h3></div><span class="cgmk-upcoming-tz">WAT · Nigeria</span></div>
-   <div class="cgmk-upcoming-list" id="upcomingGatherings" aria-live="polite"></div>
-   </div>
+   <aside class="cgmk-give-preview" aria-labelledby="give-preview-heading">
+  <span class="cgmk-give-eyebrow">PARTNER IN THE WORK</span>
+  <h3 id="give-preview-heading">Give with <em>purpose.</em></h3>
+  <p>Your generosity supports the work of the Gospel, ministry and the church community.</p>
+  <a class="cgmk-give-preview-cta" href="give.html">Explore giving <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+  <span class="cgmk-give-preview-foot">Tithes · Offerings · Partnerships</span>
+ </aside>
   </div>
  </div>
 </section>
@@ -201,7 +206,7 @@
               <h3>Explore</h3>
               <a href="index.html">Home</a>
               <a href="about.html">About us</a>
-              <a href="events.html">Events</a>
+              <a href="index.html#activities">Events</a>
               
               <a href="contact.html">Contact</a>
             </div>
