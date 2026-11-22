@@ -4,7 +4,7 @@
  const days=document.querySelector('#calendarDays');
  const monthHeading=document.querySelector('#calendarMonth');
  const upcoming=document.querySelector('#upcomingGatherings');
- if(!days||!monthHeading||!upcoming)return;
+ if(!days||!monthHeading)return;
  const timezone='Africa/Lagos';
  const nowFields=new Intl.DateTimeFormat('en-GB',{timeZone:timezone,year:'numeric',month:'numeric',day:'numeric'}).formatToParts(new Date());
  const getPart=name=>Number(nowFields.find(x=>x.type===name)?.value);
@@ -35,6 +35,7 @@
    }
  }
  function renderUpcoming(){
+   if(!upcoming)return;
    upcoming.replaceChildren();
    const start=selected?new Date(selected+'T00:00:00Z').getTime():todayUTC;
    let count=0;
