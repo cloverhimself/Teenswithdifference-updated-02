@@ -1,0 +1,3 @@
+/* Tailwind CSS v4 utilities only. Avoid Preflight reset during the visual migration. */
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
