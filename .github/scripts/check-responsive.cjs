@@ -6,7 +6,7 @@ const path = require('node:path');
   const server = spawn('python3', ['-m', 'http.server', '8765', '--bind', '127.0.0.1'], { stdio: 'ignore' });
   const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });
   const widths = [320, 360, 375, 390, 414, 430, 540, 650, 768, 900, 1024, 1280, 1440];
-  const pages = ['index.html', 'about.html', 'media.html', 'contact.html', 'give.html'];
+  const pages = ['index.html', 'about.html', 'media.html', 'contact.html', 'give.html', 'admin/index.html'];
   const problems = [];
   fs.mkdirSync('responsive-screenshots', { recursive: true });
   try {
@@ -65,6 +65,28 @@ const path = require('node:path');
           if (buttonStyle==='rgba(0, 0, 0, 0)') problems.push({pageName,width,interaction:'Watch Live is transparent'});
         }
         if(pageName==='index.html' && await page.locator('.cgmk-give-preview').count()!==1) problems.push({pageName,width,interaction:'Homepage Give preview missing'});
+        if(pageName==='admin/index.html'){
+          const overview=page.locator('#view-overview');
+          if(!await overview.isVisible()) problems.push({pageName,width,interaction:'Admin overview not visible'});
+          if(width<=800){
+            const mobileToggle=page.locator('#adminToggle');
+            await mobileToggle.click();
+            if(!await page.locator('#adminSidebar').evaluate(e=>e.classList.contains('open'))) problems.push({pageName,width,interaction:'Admin mobile sidebar does not open'});
+            await page.locator('#adminOverlay').click({position:{x:width-10,y:150}});
+          }
+          await page.locator('[data-view="events"]').click();
+          await page.locator('[data-action="new-event"]').last().click();
+          const modal=page.locator('#eventDialog');
+          if(!await modal.isVisible()) problems.push({pageName,width,interaction:'Event dialog not visible'});
+          await page.locator('#eventForm [name="title"]').fill('Demo event');
+          await page.locator('#eventForm [name="date"]').fill('2027-01-14');
+          await page.locator('#eventForm [name="time"]').fill('18:00');
+          await page.locator('#eventForm button[type="submit"]').click();
+          if(!await page.locator('.adm-event-row').count()) problems.push({pageName,width,interaction:'Event draft not saved'});
+          await page.reload({waitUntil:'domcontentloaded'});
+          await page.locator('[data-view="events"]').click();
+          if(!await page.locator('.adm-event-row').count()) problems.push({pageName,width,interaction:'Event draft not persisted locally'});
+        }
         if(pageName==='give.html'){
           if(await page.locator('.cgmk-give-method').count()!==3) problems.push({pageName,width,interaction:'Giving methods missing'});
           if(!await page.locator('.cgmk-give-contact-button').count()) problems.push({pageName,width,interaction:'Verified giving contact missing'});
