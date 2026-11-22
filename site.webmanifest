@@ -9,13 +9,13 @@
   "theme_color": "#1238B8",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/htec4rnl/image/upload/b_white,c_pad,h_192,w_192/v1795313409/cgmk-official-emblem-uploaded.png",
+      "src": "https://res.cloudinary.com/htec4rnl/image/upload/c_pad,h_192,w_192/v1795313662/cgmk-official-emblem-uploaded-transparent.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://res.cloudinary.com/htec4rnl/image/upload/b_white,c_pad,h_512,w_512/v1795313409/cgmk-official-emblem-uploaded.png",
+      "src": "https://res.cloudinary.com/htec4rnl/image/upload/c_pad,h_512,w_512/v1795313662/cgmk-official-emblem-uploaded-transparent.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
