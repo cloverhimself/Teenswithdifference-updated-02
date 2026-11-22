@@ -1149,3 +1149,43 @@ img,video,iframe{max-width:100%;}
 .cgmk-giving-status{padding:7px 10px;border:1px solid #ddd;border-radius:3px;color:#777;white-space:nowrap;font:750 10px 'Cabinet Grotesk',sans-serif;letter-spacing:.1em;}
 @media(max-width:900px){.cgmk-giving-account{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;}.cgmk-giving-status{grid-column:2;justify-self:start;}.cgmk-home-give-last-inner{align-items:start;flex-direction:column;}}
 @media(max-width:550px){.cgmk-giving-account{grid-template-columns:1fr;gap:15px;padding:23px 0;}.cgmk-giving-status{grid-column:1;}.cgmk-giving-account h3{font-size:27px;}.cgmk-giving-bank{padding-left:34px;}.cgmk-giving-status{margin-left:34px;}.cgmk-give-section-head{margin-bottom:25px;}}
+
+/* Bank-directory giving layout */
+.cgmk-give-directory{padding:clamp(45px,6vw,90px) 0;background:#fff}
+.cgmk-give-directory-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:25px}
+.cgmk-give-directory-heading>div>span{font:750 11px 'Cabinet Grotesk',sans-serif;letter-spacing:.15em;color:#E31C23}
+.cgmk-give-directory-heading h2{font:800 clamp(33px,4.6vw,60px)/1.05 'Cabinet Grotesk',sans-serif;color:#171717;letter-spacing:-.05em;margin:12px 0 0}
+.cgmk-give-directory-heading h2 em{font-style:normal;color:#E31C23}
+.cgmk-give-directory-heading>p{max-width:400px;font:450 15px/1.65 'Cabinet Grotesk',sans-serif;color:#656565;margin:0}
+.cgmk-give-sample-alert{display:flex;gap:12px;align-items:flex-start;background:#fff7f0;border:1px solid #f7d7b7;color:#442e1a;padding:13px 16px;margin:0 0 24px;border-radius:5px}
+.cgmk-give-sample-alert i{font-size:20px;color:#b84b21}
+.cgmk-give-sample-alert p{font:450 13px/1.55 'Cabinet Grotesk',sans-serif;margin:0}
+.cgmk-bank-group{background:#f9e7d9;border:1px solid #f4cfb6;border-radius:5px;padding:17px}
+.cgmk-bank-header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:0 2px 15px}
+.cgmk-bank-identity{display:flex;gap:10px;align-items:center}
+.cgmk-bank-symbol{display:grid;place-items:center;background:#fff;border-radius:3px;color:#E31C23;width:36px;height:36px;font-size:20px}
+.cgmk-bank-identity strong{display:block;font:750 17px 'Cabinet Grotesk',sans-serif;color:#162944}
+.cgmk-bank-identity small{display:block;font:450 12px/1.4 'Cabinet Grotesk',sans-serif;color:#6d6664;margin-top:2px}
+.cgmk-bank-country{font:750 11px 'Cabinet Grotesk',sans-serif;color:#315e39;white-space:nowrap}
+.cgmk-bank-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.cgmk-bank-account{background:#fff;border:1px solid #f4efeb;border-radius:5px;padding:17px 18px;min-width:0;min-height:125px}
+.cgmk-bank-account>span{display:block;font:750 13px 'Cabinet Grotesk',sans-serif;color:#6a6c72;letter-spacing:.04em}
+.cgmk-bank-account-number{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0}
+.cgmk-bank-account-number strong{font:750 clamp(21px,2.6vw,30px)/1.2 'Cabinet Grotesk',sans-serif;letter-spacing:.035em;color:#151515;overflow-wrap:anywhere}
+.cgmk-bank-account-number button{display:grid;place-items:center;flex:none;border:0;background:#f5f5f5;color:#9da2aa;width:35px;height:35px;border-radius:5px;padding:0}
+.cgmk-bank-account-number button:disabled{cursor:not-allowed;opacity:.65}
+.cgmk-bank-account>p{font:450 12px/1.4 'Cabinet Grotesk',sans-serif;color:#737373;margin:0}
+.cgmk-give-secondary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:18px}
+.cgmk-give-secondary{border:1px solid #e0e2e7;border-radius:5px;background:#f7f8fa;padding:17px;min-width:0;min-height:220px}
+.cgmk-give-secondary header{display:flex;gap:12px;align-items:center;margin-bottom:20px}
+.cgmk-give-secondary header>i{display:grid;place-items:center;width:31px;height:31px;color:#1d2f52;background:#fff;font-size:19px}
+.cgmk-give-secondary h3{font:750 20px 'Cabinet Grotesk',sans-serif;color:#151515;margin:0}
+.cgmk-give-secondary-body{background:#fff;border-radius:4px;padding:18px;min-height:125px}
+.cgmk-give-secondary-body p{font:450 14px/1.65 'Cabinet Grotesk',sans-serif;color:#676767;margin:0 0 17px}
+.cgmk-give-pending{font:750 12px 'Cabinet Grotesk',sans-serif;color:#8a8a8a}
+.cgmk-give-international{background:#edf4fe;border-color:#bcd2fb}
+.cgmk-give-international .cgmk-give-secondary-body a{font:750 13px 'Cabinet Grotesk',sans-serif;color:#1238B8;text-decoration:underline;text-underline-offset:4px}
+.cgmk-give-help{display:flex;gap:10px;align-items:start;margin:22px 0 0;color:#6a6a6a;font:450 13px/1.6 'Cabinet Grotesk',sans-serif}
+.cgmk-give-help i{color:#E31C23;font-size:18px}
+@media(max-width:720px){.cgmk-give-directory-heading{display:block}.cgmk-give-directory-heading>p{margin-top:14px}.cgmk-give-secondary-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.cgmk-bank-grid{grid-template-columns:1fr}.cgmk-bank-group{padding:11px}.cgmk-bank-account{padding:15px}.cgmk-bank-account-number strong{font-size:24px}.cgmk-bank-country{font-size:10px}.cgmk-bank-identity strong{font-size:15px}.cgmk-give-secondary{min-height:0}}
