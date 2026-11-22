@@ -1073,3 +1073,47 @@ img,video,iframe{max-width:100%;}
  .cgmk-month-layout{grid-template-columns:minmax(0,1fr)!important;}
 }
 @media(prefers-reduced-motion:reduce){.cgmk-header .cgmk-nav,.cgmk-menu-toggle span{transition:none!important;}}
+
+/* Give page: intentional, minimal, responsive presentation */
+.cgmk-give-page{background:#fff;color:#111;font-family:'Cabinet Grotesk',sans-serif;overflow-x:clip;}
+.cgmk-give-hero{position:relative;background:#090909;color:#fff;padding:clamp(155px,17vw,245px) 0 clamp(82px,10vw,155px);}
+.cgmk-give-page .cgmk-give-small{font:750 11px/1.5 'Cabinet Grotesk',sans-serif;letter-spacing:.17em;color:#d3d3d3;margin:0 0 20px;}
+.cgmk-give-hero h1{font:800 clamp(47px,7.5vw,110px)/.99 'Cabinet Grotesk',sans-serif;letter-spacing:-.065em;color:white;margin:0 0 26px;}
+.cgmk-give-hero h1 em{font-style:normal;color:#fff;text-decoration:underline;text-decoration-color:#E31C23;text-underline-offset:.12em;text-decoration-thickness:.06em;}
+.cgmk-give-hero p{max-width:560px;color:#cfcfcf;font:450 clamp(16px,1.5vw,19px)/1.75 'Cabinet Grotesk',sans-serif;margin:0 0 34px;}
+.cgmk-give-hero-link{display:inline-flex;align-items:center;gap:14px;color:#fff!important;border-bottom:1px solid #fff;text-decoration:none!important;font:700 14px 'Cabinet Grotesk',sans-serif;padding:10px 0;}
+.cgmk-give-ways{padding:clamp(64px,9vw,130px) 0;background:#fff;scroll-margin-top:65px;}
+.cgmk-give-section-head{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end;margin-bottom:45px;}
+.cgmk-give-section-head h2{font:800 clamp(36px,5vw,69px)/1.05 'Cabinet Grotesk',sans-serif;color:#111;letter-spacing:-.055em;margin:0;}
+.cgmk-give-section-head h2 em{font-style:normal;color:#E31C23;}
+.cgmk-give-section-head p{max-width:490px;font:450 17px/1.65 'Cabinet Grotesk',sans-serif;color:#595959;margin:0;}
+.cgmk-give-methods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+.cgmk-give-method{padding:clamp(22px,3vw,38px);background:#f5f5f5;min-height:280px;display:flex;align-items:flex-start;flex-direction:column;border-top:3px solid #111;}
+.cgmk-give-symbol{display:grid;place-items:center;border:1px solid #ddd;border-radius:50%;width:48px;height:48px;color:#E31C23;font-size:21px;margin-bottom:auto;}
+.cgmk-give-method h3{font:750 clamp(23px,2.3vw,31px)/1.2 'Cabinet Grotesk',sans-serif;color:#151515;margin:28px 0 12px;}
+.cgmk-give-method p{font:450 15px/1.65 'Cabinet Grotesk',sans-serif;color:#646464;margin:0;}
+.cgmk-give-instructions{padding:clamp(70px,9vw,125px) 0;background:#E31C23;color:#fff;}
+.cgmk-give-instructions-inner{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:50px;align-items:center;}
+.cgmk-give-instructions h2{font:800 clamp(39px,5vw,72px)/1.04 'Cabinet Grotesk',sans-serif;letter-spacing:-.055em;color:#fff;margin:0 0 22px;}
+.cgmk-give-instructions h2 em{font-style:normal;color:#fff;}
+.cgmk-give-instructions p:not(.cgmk-give-small){font:450 17px/1.7 'Cabinet Grotesk',sans-serif;color:#fff;max-width:620px;margin:0;}
+.cgmk-give-instructions-action{display:flex;align-items:flex-start;flex-direction:column;gap:16px;}
+.cgmk-give-contact-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 21px;border-radius:6px;background:#fff;color:#111!important;text-decoration:none!important;font:750 14px/1.4 'Cabinet Grotesk',sans-serif;white-space:normal;}
+.cgmk-give-contact-button:hover{background:#f1f1f1;}
+.cgmk-give-instructions-action small{color:#fff;font:450 13px/1.6 'Cabinet Grotesk',sans-serif;}
+.cgmk-give-close{text-align:center;padding:clamp(72px,10vw,140px) 0;background:#fff;}
+.cgmk-give-close p{font-size:15px;color:#555;margin:0 0 24px;}
+.cgmk-give-close h2{font:800 clamp(35px,5vw,67px)/1.12 'Cabinet Grotesk',sans-serif;letter-spacing:-.05em;color:#111;margin:0 0 27px;}
+.cgmk-give-close a{display:inline-flex;align-items:center;gap:10px;color:#E31C23!important;font:750 14px 'Cabinet Grotesk',sans-serif;text-decoration:underline;text-underline-offset:5px;}
+@media(max-width:820px){
+ .cgmk-give-section-head,.cgmk-give-instructions-inner{grid-template-columns:1fr;gap:20px;}
+ .cgmk-give-methods{grid-template-columns:1fr;}
+ .cgmk-give-method{min-height:215px;}
+ .cgmk-give-instructions-action{margin-top:20px;}
+}
+@media(max-width:480px){
+ .cgmk-give-hero{padding:150px 0 78px;}
+ .cgmk-give-hero h1{font-size:clamp(40px,10.5vw,58px);}
+ .cgmk-give-method{min-height:190px;padding:25px;}
+ .cgmk-give-symbol{margin-bottom:20px;}
+}
