@@ -1120,3 +1120,32 @@ img,video,iframe{max-width:100%;}
 
 .cgmk-give-emblem{display:block;width:78px;height:78px;object-fit:contain;background:#fff;border-radius:50%;margin:0 0 25px;}
 @media(max-width:900px){html.cgmk-drawer-open,html.cgmk-drawer-open body{touch-action:auto!important;}html.cgmk-drawer-open body{position:relative;}.cgmk-header .cgmk-nav{touch-action:pan-y!important;}}
+
+/* Homepage giving sits after all main sections, not beside the calendar. */
+.cgmk-home-give-last{background:#101010;color:#fff;padding:clamp(52px,7vw,90px) 0;}
+.cgmk-home-give-last-inner{display:flex;align-items:end;justify-content:space-between;gap:35px;}
+.cgmk-home-give-last-label{display:block;font:750 11px 'Cabinet Grotesk',sans-serif;letter-spacing:.16em;color:#e0e0e0;margin-bottom:15px;}
+.cgmk-home-give-last h2{font:800 clamp(37px,5.2vw,65px)/1.03 'Cabinet Grotesk',sans-serif;letter-spacing:-.05em;color:#fff;margin:0 0 15px;}
+.cgmk-home-give-last h2 em{font-style:normal;text-decoration:underline;text-decoration-color:#E31C23;text-underline-offset:9px;color:#fff;}
+.cgmk-home-give-last p{color:#cfcfcf;font:450 16px/1.65 'Cabinet Grotesk',sans-serif;margin:0;max-width:560px;}
+.cgmk-home-give-last-link{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;background:#fff;color:#111!important;padding:14px 19px;border-radius:5px;text-decoration:none!important;white-space:nowrap;font:750 14px 'Cabinet Grotesk',sans-serif;}
+.cgmk-home-give-last-link:hover{background:#eee;}
+/* Giving accounts are editorial rows, not cards. */
+.cgmk-give-ways{background:#fff;}
+.cgmk-giving-alert{display:flex;gap:14px;align-items:flex-start;border-left:3px solid #E31C23;background:#faf7f7;padding:17px 22px;margin-bottom:34px;}
+.cgmk-giving-alert i{font-size:21px;color:#b91821;flex:none;}
+.cgmk-giving-alert strong{display:block;color:#212121;font:750 15px 'Cabinet Grotesk',sans-serif;margin-bottom:4px;}
+.cgmk-giving-alert span{display:block;color:#595959;font:450 14px/1.5 'Cabinet Grotesk',sans-serif;}
+.cgmk-giving-accounts{border-top:1px solid #dcdcdc;}
+.cgmk-giving-account{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;align-items:center;gap:28px;padding:28px 0;border-bottom:1px solid #dedede;background:transparent;}
+.cgmk-giving-account-title{display:flex;gap:21px;align-items:start;min-width:0;}
+.cgmk-giving-account-title>span{color:#E31C23;font:750 13px 'Cabinet Grotesk',sans-serif;padding-top:7px;}
+.cgmk-giving-account h3{color:#131313;font:750 clamp(25px,3vw,40px)/1.1 'Cabinet Grotesk',sans-serif;letter-spacing:-.04em;margin:0 0 8px;}
+.cgmk-giving-account-title p{color:#636363;font:450 14px/1.5 'Cabinet Grotesk',sans-serif;margin:0;}
+.cgmk-giving-bank{display:flex;flex-direction:column;gap:5px;}
+.cgmk-giving-bank small{font:650 12px 'Cabinet Grotesk',sans-serif;color:#777;}
+.cgmk-giving-bank strong{font:750 clamp(22px,2.4vw,31px)/1.1 'Cabinet Grotesk',sans-serif;color:#1c1c1c;letter-spacing:.07em;white-space:nowrap;}
+.cgmk-giving-bank span{font:450 12px 'Cabinet Grotesk',sans-serif;color:#888;}
+.cgmk-giving-status{padding:7px 10px;border:1px solid #ddd;border-radius:3px;color:#777;white-space:nowrap;font:750 10px 'Cabinet Grotesk',sans-serif;letter-spacing:.1em;}
+@media(max-width:900px){.cgmk-giving-account{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;}.cgmk-giving-status{grid-column:2;justify-self:start;}.cgmk-home-give-last-inner{align-items:start;flex-direction:column;}}
+@media(max-width:550px){.cgmk-giving-account{grid-template-columns:1fr;gap:15px;padding:23px 0;}.cgmk-giving-status{grid-column:1;}.cgmk-giving-account h3{font-size:27px;}.cgmk-giving-bank{padding-left:34px;}.cgmk-giving-status{margin-left:34px;}.cgmk-give-section-head{margin-bottom:25px;}}
