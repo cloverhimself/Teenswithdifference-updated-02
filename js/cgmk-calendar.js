@@ -38,7 +38,7 @@
    upcoming.replaceChildren();
    const start=selected?new Date(selected+'T00:00:00Z').getTime():todayUTC;
    let count=0;
-   for(let offset=0;offset<55&&count<5;offset++){
+   for(let offset=0;offset<55&&count<3;offset++){
     const date=new Date(start+offset*86400000),kind=kinds[date.getUTCDay()];
     if(!kind)continue;
     const d=date.getUTCDate(),m=date.getUTCMonth();
