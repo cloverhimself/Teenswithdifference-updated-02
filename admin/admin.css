@@ -3,3 +3,25 @@
 @media(max-width:800px){.adm-sidebar{position:fixed;top:0;bottom:0;left:0;transform:translateX(-102%);transition:transform .28s ease;z-index:200}.adm-sidebar.open{transform:translateX(0)}.adm-overlay:not([hidden]){display:block;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:180}.adm-menu-toggle{display:inline-flex;align-items:center;justify-content:center}.adm-breadcrumb{margin-right:auto}.adm-panel-grid{grid-template-columns:1fr}.adm-media-categories{grid-template-columns:1fr}.adm-account-list>div{grid-template-columns:1fr}.adm-account-list small{grid-column:1}}
 @media(max-width:540px){.adm-topbar{height:63px;padding:0 17px}.adm-view{padding:22px 15px}.adm-page-heading{align-items:flex-start;flex-direction:column;gap:17px}.adm-stats{gap:9px}.adm-stats article{padding:18px}.adm-stats article strong{font-size:31px}.adm-stats article small{font-size:11px}.adm-event-row{grid-template-columns:50px minmax(0,1fr);gap:10px;padding:15px}.adm-event-row-actions{grid-column:2;justify-content:flex-start}.adm-dialog-fields{grid-template-columns:1fr}.adm-dialog form{padding:19px}.adm-settings-panel>div{grid-template-columns:1fr;gap:6px}.adm-preview-pill{font-size:10px;padding:7px 9px}.adm-breadcrumb{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.adm-sidebar{transition:none}}
+
+/* Local giving manager preview */
+.adm-giving-tools{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.adm-giving-preview-list{display:grid;gap:10px;margin:0 0 22px}
+.adm-giving-preview-row{display:flex;justify-content:space-between;align-items:center;gap:20px;border:1px solid #e3e7ee;background:#fff;border-radius:8px;padding:18px}
+.adm-giving-preview-info{display:flex;flex-direction:column;gap:5px;min-width:0}
+.adm-giving-preview-info strong{font-size:19px}
+.adm-giving-preview-info span{font-size:13px;color:#78818d;overflow-wrap:anywhere}
+.adm-giving-preview-info code{font-size:20px;font-weight:750;letter-spacing:.07em;color:#141923}
+.adm-giving-preview-info small{font-size:11px;color:#ab3540}
+.adm-giving-preview-actions{display:flex;flex-wrap:wrap;justify-content:end;gap:7px}
+.adm-giving-preview-actions button{border:1px solid #dce1e8;background:#fff;border-radius:5px;padding:8px 10px;font-size:12px;font-weight:650}
+.adm-giving-preview-actions button:disabled{opacity:.35;cursor:not-allowed}
+.adm-giving-preview-actions button:hover:not(:disabled){background:#f3f5f7}
+.adm-giving-preview-actions button:last-child{color:#be2632}
+.adm-giving-international{margin-bottom:20px}
+.adm-giving-international label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
+.adm-giving-international input{display:block;width:100%;max-width:540px;border:1px solid #dce1ea;border-radius:5px;padding:12px;font-size:14px}
+.adm-giving-international p,.adm-giving-empty{font-size:13px;color:#7b8390;line-height:1.6}
+.adm-toggle-label{display:flex!important;flex-direction:row!important;align-items:center;gap:10px}
+.adm-toggle-label input{width:auto!important}
+@media(max-width:650px){.adm-giving-preview-row{display:block}.adm-giving-preview-actions{justify-content:flex-start;margin-top:16px}.adm-giving-preview-info code{font-size:18px}}
