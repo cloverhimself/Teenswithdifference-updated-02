@@ -1117,3 +1117,6 @@ img,video,iframe{max-width:100%;}
  .cgmk-give-method{min-height:190px;padding:25px;}
  .cgmk-give-symbol{margin-bottom:20px;}
 }
+
+.cgmk-give-emblem{display:block;width:78px;height:78px;object-fit:contain;background:#fff;border-radius:50%;margin:0 0 25px;}
+@media(max-width:900px){html.cgmk-drawer-open,html.cgmk-drawer-open body{touch-action:auto!important;}html.cgmk-drawer-open body{position:relative;}.cgmk-header .cgmk-nav{touch-action:pan-y!important;}}
