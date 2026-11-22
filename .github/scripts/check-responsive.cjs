@@ -38,7 +38,7 @@ const path = require('node:path');
         if (result.doc > width + 2 || result.escaped.length) problems.push({ pageName, width, ...result });
         if (pageName === 'index.html') {
           const c=result.calendarChecks;
-          if (!c || c.count < 28 || c.badCells || c.letterSpacing !== '0px' || c.textTransform !== 'none' || c.controls.length !== 2 || c.controls.some(b=>Math.abs(b.width-b.height)>2 || b.width > 40)) problems.push({ pageName, width, calendarProblem:c });
+          if (!c || c.count < 28 || c.badCells || !['0px','normal'].includes(c.letterSpacing) || c.textTransform !== 'none' || c.controls.length !== 2 || c.controls.some(b=>Math.abs(b.width-b.height)>2 || b.width > 40)) problems.push({ pageName, width, calendarProblem:c });
         }
         if ([320, 375, 430, 768, 1280].includes(width)) await page.screenshot({ path: path.join('responsive-screenshots', pageName.replace('.html', '') + '-' + width + '.png'), fullPage: true });
         await page.close();
