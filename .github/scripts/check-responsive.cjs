@@ -40,6 +40,19 @@ const path = require('node:path');
           const c=result.calendarChecks;
           if (!c || c.count < 28 || c.badCells || !['0px','normal'].includes(c.letterSpacing) || c.textTransform !== 'none' || c.controls.length !== 2 || c.controls.some(b=>Math.abs(b.width-b.height)>2 || b.width > 40)) problems.push({ pageName, width, calendarProblem:c });
         }
+        if (pageName === 'about.html') {
+          const initial = await page.locator('#cgmk-mission-panel').isVisible();
+          const hidden = await page.locator('#cgmk-philosophy-panel').isHidden();
+          if (!initial || !hidden) problems.push({ pageName, width, interaction:'Mission tab not initially visible' });
+          await page.locator('#cgmk-philosophy-tab').click();
+          const switched = await page.locator('#cgmk-philosophy-panel').isVisible();
+          if (!switched || await page.locator('#cgmk-mission-panel').isVisible()) problems.push({ pageName, width, interaction:'Mission philosophy switch failed' });
+          const values = page.locator('.cgmk-value-row');
+          if (await values.count() !== 6) problems.push({ pageName, width, interaction:'Core value count incorrect' });
+          await values.nth(1).locator('summary').click();
+          if (!await values.nth(1).evaluate(e=>e.open) || await values.nth(0).evaluate(e=>e.open)) problems.push({ pageName, width, interaction:'Core value accordion failed' });
+          if (!await page.locator('.cgmk-about-hero-image').count()) problems.push({ pageName, width, interaction:'About hero image absent' });
+        }
         if ([320, 375, 430, 768, 1280].includes(width)) await page.screenshot({ path: path.join('responsive-screenshots', pageName.replace('.html', '') + '-' + width + '.png'), fullPage: true });
         await page.close();
       }
