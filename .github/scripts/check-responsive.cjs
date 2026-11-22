@@ -87,8 +87,18 @@ const path = require('node:path');
           await page.locator('[data-view="events"]').click();
           if(!await page.locator('.adm-event-row').count()) problems.push({pageName,width,interaction:'Event draft not persisted locally'});
         }
-        if(pageName==='give.html'){
-          if(await page.locator('.cgmk-give-method').count()!==3) problems.push({pageName,width,interaction:'Giving methods missing'});
+        if(pageName==='admin/index.html'){
+          await page.locator('[data-view="giving"]').click();
+          if(await page.locator('.adm-giving-preview-row').count()!==4) problems.push({pageName,width,interaction:'Four sample giving accounts missing'});
+          await page.locator('#addGivingAccount').click();
+          if(!await page.locator('#givingDialog').isVisible()) problems.push({pageName,width,interaction:'Giving account editor did not open'});
+          await page.locator('#givingForm [name="purpose"]').fill('Sample outreach');
+          await page.locator('#givingForm button[type="submit"]').click();
+          if(await page.locator('.adm-giving-preview-row').count()!==5) problems.push({pageName,width,interaction:'Sample giving account was not added'});
+          if(await page.locator('#givingDialog').isVisible()) problems.push({pageName,width,interaction:'Giving editor did not close'});
+        }
+                if(pageName==='give.html'){
+          if(await page.locator('.cgmk-bank-account').count()!==4) problems.push({pageName,width,interaction:'Four giving account boxes missing'});
           if(!await page.locator('.cgmk-give-contact-button').count()) problems.push({pageName,width,interaction:'Verified giving contact missing'});
         }
         if(width<=900){
