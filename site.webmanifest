@@ -9,7 +9,13 @@
   "theme_color": "#1238B8",
   "icons": [
     {
-      "src": "https://cgmintusa.org/wp-content/uploads/2025/04/CGMI-Logo.png",
+      "src": "https://res.cloudinary.com/htec4rnl/image/upload/b_white,c_pad,h_192,w_192/v1795312544/cgmi-official-emblem.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://res.cloudinary.com/htec4rnl/image/upload/b_white,c_pad,h_512,w_512/v1795312544/cgmi-official-emblem.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
