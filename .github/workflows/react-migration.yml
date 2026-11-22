@@ -1,0 +1,40 @@
+name: React migration build
+on:
+  push:
+    branches:
+      - feat/react-vite-typescript
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: react-app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm install
+      - name: Type check and build
+        run: npm run build
+      - name: Install Chromium for UI smoke checks
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Verify mobile and desktop page interactions
+        run: node scripts/smoke.cjs
+      - name: Upload responsive screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cgmk-react-responsive-screenshots
+          path: react-app/responsive-screenshots/
+      - name: Upload static site preview
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cgmk-react-dist
+          path: react-app/dist

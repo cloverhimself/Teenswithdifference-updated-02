@@ -1,0 +1,12 @@
+/* React-specific compatibility, not a new site design */
+.cgmk-hero{position:relative}
+.cgmk-month-section .cgmk-calendar-days button{all:unset;box-sizing:border-box;display:grid;place-items:center;aspect-ratio:1;position:relative;border-radius:7px;color:#26384e;cursor:pointer;font:650 13px/1 'Cabinet Grotesk',sans-serif;letter-spacing:0}
+.cgmk-month-section .cgmk-calendar-days button.has-event{background:#f0f3f8}
+.cgmk-month-section .cgmk-calendar-days button.has-event::after{content:"";position:absolute;bottom:7%;width:4px;height:4px;background:#E31C23;border-radius:50%}
+.cgmk-month-section .cgmk-calendar-days button.is-selected{background:#1238B8;color:#fff}
+.cgmk-month-section .cgmk-calendar-days button.is-today{outline:1px solid #E31C23}
+.cgmk-month-section .cgmk-calendar-controls button{all:unset;display:grid;place-items:center;width:32px;height:32px;border:1px solid #ddd;border-radius:50%;cursor:pointer;box-sizing:border-box}
+.cgmk-media-page .cgmk-media-grid .cgmk-library-card[hidden]{display:none!important}
+.cgmk-identity-panel[hidden]{display:none!important}
+.cgmk-header .cgmk-nav.is-open{visibility:visible!important}
+@media(max-width:900px){.cgmk-header .cgmk-nav{pointer-events:none}.cgmk-header .cgmk-nav.is-open{pointer-events:auto}}
