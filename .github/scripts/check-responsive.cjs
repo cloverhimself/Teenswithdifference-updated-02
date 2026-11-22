@@ -6,7 +6,7 @@ const path = require('node:path');
   const server = spawn('python3', ['-m', 'http.server', '8765', '--bind', '127.0.0.1'], { stdio: 'ignore' });
   const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });
   const widths = [320, 360, 375, 390, 414, 430, 540, 650, 768, 900, 1024, 1280, 1440];
-  const pages = ['index.html', 'about.html', 'media.html', 'contact.html'];
+  const pages = ['index.html', 'about.html', 'media.html', 'contact.html', 'give.html'];
   const problems = [];
   fs.mkdirSync('responsive-screenshots', { recursive: true });
   try {
@@ -54,6 +54,29 @@ const path = require('node:path');
           if (await page.locator('.cgmk-value-row').count() !== 0) problems.push({ pageName, width, interaction:'Removed values still present' });
           if (await page.locator('.cgmk-identity-photo img').count() !== 2) problems.push({ pageName, width, interaction:'Mission or philosophy image missing' });
           if (!await page.locator('.cgmk-about-hero-image').count()) problems.push({ pageName, width, interaction:'About hero image absent' });
+        }
+        const eventLink=page.locator('.cgmk-nav a').filter({hasText:'Events'}).first();
+        if (await eventLink.count() && await eventLink.getAttribute('href') !== 'index.html#activities') problems.push({pageName,width,interaction:'Events does not link to homepage calendar'});
+        const giveLink=page.locator('.cgmk-nav a[href="give.html"]').first();
+        if (!await giveLink.count()) problems.push({pageName,width,interaction:'Give missing from navigation'});
+        const live=page.locator('.cgmk-nav-action').first();
+        if (await live.count()) {
+          const buttonStyle=await live.evaluate(el=>getComputedStyle(el).backgroundColor);
+          if (buttonStyle==='rgba(0, 0, 0, 0)') problems.push({pageName,width,interaction:'Watch Live is transparent'});
+        }
+        if(pageName==='index.html' && await page.locator('.cgmk-give-preview').count()!==1) problems.push({pageName,width,interaction:'Homepage Give preview missing'});
+        if(pageName==='give.html'){
+          if(await page.locator('.cgmk-give-method').count()!==3) problems.push({pageName,width,interaction:'Giving methods missing'});
+          if(!await page.locator('.cgmk-give-contact-button').count()) problems.push({pageName,width,interaction:'Verified giving contact missing'});
+        }
+        if(width<=900){
+          const toggle=page.locator('.cgmk-menu-toggle');
+          await toggle.click();
+          const drawer=page.locator('#cgmkNav');
+          const drawerBox=await drawer.boundingBox();
+          if(await toggle.getAttribute('aria-expanded')!=='true' || !drawerBox || drawerBox.width < width*.9) problems.push({pageName,width,interaction:'Mobile full-screen drawer did not open'});
+          await page.keyboard.press('Escape');
+          if(await toggle.getAttribute('aria-expanded')!=='false') problems.push({pageName,width,interaction:'Mobile drawer did not close with Escape'});
         }
         if ([320, 375, 430, 768, 1280].includes(width)) await page.screenshot({ path: path.join('responsive-screenshots', pageName.replace('.html', '') + '-' + width + '.png'), fullPage: true });
         await page.close();
