@@ -1,6 +1,6 @@
 // CGMK offline shell. Network-first HTML avoids serving stale church schedules.
-const CACHE='cgmk-shell-v1';
-const CORE=['/index.html','/about.html','/media.html','/contact.html','/offline.html','/site.webmanifest','/css/cgmk-home.css','/css/cgmk-calendar.css','/js/cgmk-home.js','/js/cgmk-about.js','/js/cgmk-calendar.js'];
+const CACHE='cgmk-shell-v2';
+const CORE=['/index.html','/about.html','/media.html','/contact.html','/give.html','/offline.html','/site.webmanifest','/css/cgmk-home.css','/css/cgmk-calendar.css','/js/cgmk-home.js','/js/cgmk-about.js','/js/cgmk-calendar.js'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(async cache=>{
     await Promise.allSettled(CORE.map(url=>cache.add(url)));
