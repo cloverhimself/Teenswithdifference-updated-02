@@ -41,3 +41,34 @@
 })();
 
 
+
+/* Accessible mission and philosophy switcher and single-open core values. */
+(() => {
+ const tabs=[...document.querySelectorAll('.cgmk-identity-tab')];
+ if(!tabs.length)return;
+ const activate=(index,focus=false)=>{
+   tabs.forEach((tab,i)=>{
+     const active=i===index;
+     tab.setAttribute('aria-selected',String(active));
+     tab.tabIndex=active?0:-1;
+     const panel=document.getElementById(tab.getAttribute('aria-controls'));
+     if(panel)panel.hidden=!active;
+   });
+   if(focus)tabs[index].focus();
+ };
+ tabs.forEach((tab,i)=>{
+   tab.addEventListener('click',()=>activate(i));
+   tab.addEventListener('keydown',e=>{
+      let next=null;
+      if(e.key==='ArrowRight')next=(i+1)%tabs.length;
+      if(e.key==='ArrowLeft')next=(i+tabs.length-1)%tabs.length;
+      if(e.key==='Home')next=0;
+      if(e.key==='End')next=tabs.length-1;
+      if(next!==null){e.preventDefault();activate(next,true);}
+   });
+ });
+ const details=[...document.querySelectorAll('.cgmk-value-row')];
+ details.forEach(row=>row.addEventListener('toggle',()=>{
+   if(row.open)details.forEach(other=>{if(other!==row)other.open=false;});
+ }));
+})();
