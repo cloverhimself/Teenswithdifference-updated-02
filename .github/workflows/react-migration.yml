@@ -20,6 +20,18 @@ jobs:
         run: npm install
       - name: Type check and build
         run: npm run build
+      - name: Install Chromium for UI smoke checks
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Verify mobile and desktop page interactions
+        run: node scripts/smoke.cjs
+      - name: Upload responsive screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cgmk-react-responsive-screenshots
+          path: react-app/responsive-screenshots/
       - name: Upload static site preview
         if: success()
         uses: actions/upload-artifact@v4
