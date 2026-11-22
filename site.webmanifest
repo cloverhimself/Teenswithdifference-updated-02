@@ -1,1 +1,28 @@
-{"name":"Christ Gospel Mission Karu","short_name":"CGMK","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+{
+  "name": "Christ Gospel Mission Karu",
+  "short_name": "CGMK",
+  "description": "Church gatherings, messages and fellowship at CGM Karu",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1238B8",
+  "icons": [
+    {
+      "src": "https://cgmintusa.org/wp-content/uploads/2025/04/CGMI-Logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Church Media",
+      "url": "/media.html"
+    },
+    {
+      "name": "Connect",
+      "url": "/contact.html"
+    }
+  ]
+}
