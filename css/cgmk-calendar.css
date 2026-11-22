@@ -1,0 +1,57 @@
+/* CGMK calendar component: self-contained styles overriding legacy global button rules */
+.cgmk-month-section .cgmk-calendar,
+.cgmk-month-section .cgmk-calendar * { box-sizing:border-box; }
+.cgmk-month-section .cgmk-calendar { width:100%; min-width:0; }
+.cgmk-month-section .cgmk-calendar-header { display:flex; align-items:center; justify-content:space-between; gap:12px; min-width:0; }
+.cgmk-month-section .cgmk-calendar-header h3 { margin:0; font:750 clamp(18px,2.1vw,24px)/1.2 "Cabinet Grotesk",sans-serif; letter-spacing:-.025em; white-space:normal; }
+.cgmk-month-section .cgmk-calendar-controls { display:flex; flex:none; gap:7px; align-items:center; }
+.cgmk-month-section .cgmk-calendar-controls button,
+.cgmk-month-section .cgmk-calendar-days button {
+  all:unset;
+  -webkit-appearance:none;
+  appearance:none;
+  box-sizing:border-box;
+  display:grid;
+  place-items:center;
+  flex:none;
+  min-width:0;
+  min-height:0;
+  margin:0;
+  padding:0;
+  border:0;
+  letter-spacing:0;
+  line-height:1;
+  text-align:center;
+  text-transform:none;
+  white-space:normal;
+  font-family:"Cabinet Grotesk",system-ui,sans-serif;
+  font-weight:650;
+  cursor:pointer;
+}
+.cgmk-month-section .cgmk-calendar-controls button { width:32px; height:32px; border-radius:50%; background:#f3f5f8; color:#233e5e; border:1px solid #e1e6ec; font-size:15px; }
+.cgmk-month-section .cgmk-calendar-controls button:hover { background:#e7edf4; }
+.cgmk-month-section .cgmk-calendar-controls button i { display:block; line-height:1; }
+.cgmk-month-section .cgmk-calendar-weekdays,
+.cgmk-month-section .cgmk-calendar-days { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:4px; width:100%; }
+.cgmk-month-section .cgmk-calendar-weekdays { margin-bottom:8px; }
+.cgmk-month-section .cgmk-calendar-weekdays span { text-align:center; min-width:0; font:700 11px/1.3 "Cabinet Grotesk",sans-serif; letter-spacing:0; text-transform:none; }
+.cgmk-month-section .cgmk-calendar-days button,
+.cgmk-month-section .cgmk-calendar-blank { aspect-ratio:1; width:100%; height:auto; min-width:0; }
+.cgmk-month-section .cgmk-calendar-days button { position:relative; border-radius:7px; color:#26384e; font-size:13px; background:transparent; border:1px solid transparent; }
+.cgmk-month-section .cgmk-calendar-days button.has-event { background:#f0f3f8; }
+.cgmk-month-section .cgmk-calendar-days button.has-event::after { content:""; position:absolute; width:4px; height:4px; left:calc(50% - 2px); bottom:8%; border-radius:50%; background:#b5263d; }
+.cgmk-month-section .cgmk-calendar-days button[data-weekday="2"].has-event::after { background:#173f78; }
+.cgmk-month-section .cgmk-calendar-days button[data-weekday="4"].has-event::after { background:#c67d38; }
+.cgmk-month-section .cgmk-calendar-days button:hover { border-color:#c9d2dd; }
+.cgmk-month-section .cgmk-calendar-days button.is-today { border-color:#bd334a; }
+.cgmk-month-section .cgmk-calendar-days button.is-selected { color:#fff; background:#173f78; }
+.cgmk-month-section .cgmk-calendar-controls button:focus-visible,
+.cgmk-month-section .cgmk-calendar-days button:focus-visible { outline:2px solid #b5263d; outline-offset:2px; }
+.cgmk-month-section .cgmk-calendar-days button:disabled { opacity:.5; cursor:not-allowed; }
+.cgmk-month-section .cgmk-calendar-legend { line-height:1.5; }
+@media(max-width:380px) {
+ .cgmk-month-section .cgmk-calendar-weekdays,
+ .cgmk-month-section .cgmk-calendar-days { gap:2px; }
+ .cgmk-month-section .cgmk-calendar-controls button { width:30px; height:30px; }
+ .cgmk-month-section .cgmk-calendar-days button { font-size:12px; }
+}
