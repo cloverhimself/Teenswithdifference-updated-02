@@ -21,10 +21,25 @@ const path = require('node:path');
           const vw = document.documentElement.clientWidth;
           const main = [...document.querySelectorAll('.cgmk-activity,.cgmk-activity-time,.cgmk-activity-name,.cgmk-activities-list,.cgmk-media-content,.cgmk-media-grid,.cgmk-footer-columns,.cgmk-nav-action,.cgmk-brand')];
           const escaped = main.filter(el => { const r = el.getBoundingClientRect(); return r.width > 0 && (r.left < -2 || r.right > vw + 2); }).map(el => ({ selector: el.className || el.tagName, left: Math.round(el.getBoundingClientRect().left), right: Math.round(el.getBoundingClientRect().right) }));
-          return { doc: document.documentElement.scrollWidth, vw, escaped };
+          const calendarButtons=[...document.querySelectorAll('.cgmk-calendar-days button')];
+          const calendarChecks = calendarButtons.length ? (() => {
+            const css=getComputedStyle(calendarButtons[0]);
+            const boxes=calendarButtons.map(b=>b.getBoundingClientRect());
+            const calendar=document.querySelector('.cgmk-calendar-days').getBoundingClientRect();
+            const controlButtons=[...document.querySelectorAll('.cgmk-calendar-controls button')];
+            const controls=controlButtons.map(b=>({width:b.getBoundingClientRect().width,height:b.getBoundingClientRect().height}));
+            const badCells=boxes.filter(b=>b.left < calendar.left-2 || b.right > calendar.right+2 || b.height > 65 || b.width < 20).length;
+            const rows=[...new Set(boxes.map(b=>Math.round(b.top)))];
+            return { count:calendarButtons.length, letterSpacing:css.letterSpacing, textTransform:css.textTransform, cellHeight:Math.round(boxes[0].height), badCells, rows:rows.length, controls };
+          })() : null;
+          return { doc: document.documentElement.scrollWidth, vw, escaped, calendarChecks };
         });
         console.log(pageName, width, JSON.stringify(result));
         if (result.doc > width + 2 || result.escaped.length) problems.push({ pageName, width, ...result });
+        if (pageName === 'index.html') {
+          const c=result.calendarChecks;
+          if (!c || c.count < 28 || c.badCells || c.letterSpacing !== '0px' || c.textTransform !== 'none' || c.controls.length !== 2 || c.controls.some(b=>Math.abs(b.width-b.height)>2 || b.width > 40)) problems.push({ pageName, width, calendarProblem:c });
+        }
         if ([320, 375, 430, 768, 1280].includes(width)) await page.screenshot({ path: path.join('responsive-screenshots', pageName.replace('.html', '') + '-' + width + '.png'), fullPage: true });
         await page.close();
       }
