@@ -1,6 +1,7 @@
-import {useEffect,useMemo,useState} from "react";
+import {useEffect,useState} from "react";
+import parse,{Element} from "html-react-parser";
 import {legacyContent} from "./content";
-import {Legacy} from "./App";
+
 const mission={
  title:<>Proclaim the Word.<br/>Raise leaders.<br/><em>Reach the nations.</em></>,
  text:"Christ Gospel Mission International is committed to proclaiming the unadulterated Word of God with signs and wonders, planting vibrant churches in all nations of the world, and developing leadership until Jesus Christ comes back.",
@@ -25,13 +26,6 @@ function MissionTabs(){
   </div></div>;
 }
 export function AboutPage(){
- const [before,after]=useMemo(()=>{
-  const html=legacyContent.aboutMain;
-  const start=html.indexOf('<div class="cgmk-identity-interactive"');
-  const end=html.indexOf('<a class="cgmk-official-source"',start);
-  if(start<0||end<0)return [html,""];
-  return [html.slice(0,start),html.slice(end)];
- },[]);
  useEffect(()=>{
    const timeline=document.querySelector<HTMLElement>(".cgmk-timeline-v2");
    const progress=document.querySelector<HTMLElement>(".cgmk-timeline-progress");
@@ -50,5 +44,5 @@ export function AboutPage(){
    update();
    return()=>{cancelAnimationFrame(frame);window.removeEventListener("scroll",update);window.removeEventListener("resize",update);};
  },[]);
- return <main><Legacy html={before}/><MissionTabs/><Legacy html={after}/></main>;
+ return <main>{parse(legacyContent.aboutMain,{replace(node){if(node instanceof Element && node.attribs?.class?.split(" ").includes("cgmk-identity-interactive"))return <MissionTabs/>;}})}</main>;
 }
